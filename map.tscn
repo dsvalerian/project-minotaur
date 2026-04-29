@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dpwtjlal3e7xm"]
+
+[ext_resource type="TileSet" path="res://.godot/imported/tilesheet_complete.png-1f596ca1934ca5e56535bc882b35ffa5.ctex" id="1_c7s6e"]
+
+[node name="Map" type="Node2D" unique_id=1822706002]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=36018287]
+tile_set = ExtResource("1_c7s6e")
