@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Project Minotaur"
+run/main_scene="uid://dpwtjlal3e7xm"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
 [physics]
 

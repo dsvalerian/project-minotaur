@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwku5rokix8pf" path="res://assets/tilesheet_complete_2X.png" id="1_f1i1s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3gbh"]
+resource_name = "test_tiles"
 texture = ExtResource("1_f1i1s")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -271,4 +272,4 @@ texture_region_size = Vector2i(128, 128)
 
 [resource]
 tile_size = Vector2i(128, 128)
-sources/2 = SubResource("TileSetAtlasSource_c3gbh")
+sources/0 = SubResource("TileSetAtlasSource_c3gbh")
