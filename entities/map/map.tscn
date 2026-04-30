@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dpwtjlal3e7xm"]
 
 [ext_resource type="TileSet" uid="uid://d15sxjpt6p1i6" path="res://assets/basic_tileset.tres" id="1_wijl4"]
-[ext_resource type="Script" uid="uid://bawihpsrv70lr" path="res://map_tiles.gd" id="2_wijl4"]
+[ext_resource type="Script" uid="uid://bawihpsrv70lr" path="res://entities/map/map_tiles.gd" id="2_wijl4"]
 
 [node name="Map" type="Node2D" unique_id=1822706002]
 

@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://b8f76y0vueqxj"]
 
 [ext_resource type="PackedScene" uid="uid://bpv0j4dxbtwo2" path="res://systems/game/game_manager/game_manager.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dpwtjlal3e7xm" path="res://entities/map/map.tscn" id="2_2c62f"]
 
 [node name="Main" type="Node2D" unique_id=469740023]
 
 [node name="GameManager" parent="." unique_id=456663166 instance=ExtResource("1_ig7tw")]
+
+[node name="Map" parent="." unique_id=1822706002 instance=ExtResource("2_2c62f")]
