@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dvti774flgrko"]
-
-[ext_resource type="Script" uid="uid://fqme7o3psbp6" path="res://entities/characters/players/player/player.gd" id="1_v187r"]
-
-[node name="PlayableCharacter" type="Node2D" unique_id=1258432682]
-script = ExtResource("1_v187r")
-health = 100
