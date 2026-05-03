@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dk6u3sh3xl2fg"]
-
-[ext_resource type="Script" uid="uid://bt2wdhcpf8ybk" path="res://entities/characters/players/warrior_player/warrior_player.gd" id="1_ahbft"]
-
-[node name="WarriorPlayer" type="Node" unique_id=47028470]
-script = ExtResource("1_ahbft")
-title = "Warrior"
-health = 100

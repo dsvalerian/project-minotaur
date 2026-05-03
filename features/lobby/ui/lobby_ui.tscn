@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://mnvd1y74n5qn"]
+
+[ext_resource type="Script" uid="uid://biet0miy7t155" path="res://features/lobby/ui/lobby_ui.gd" id="1_pqw8q"]
+
+[sub_resource type="GDScript" id="GDScript_lw3rh"]
+script/source = "extends VBoxContainer
+
+@onready var port_edit: LineEdit = $PortEdit
+
+func _host_server() -> void:
+	NetworkManager.host_game(port_edit.text.to_int())
+"
+
+[node name="LobbyUI" type="Control" unique_id=839095931]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.53, 1.53)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pqw8q")
+
+[node name="HostJoinMenu" type="VBoxContainer" parent="." unique_id=1006323932]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.19604
+offset_top = -80.39218
+offset_right = 190.19604
+offset_bottom = 80.39218
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="HostButton" type="Button" parent="HostJoinMenu" unique_id=1630633473]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "HOST"
+
+[node name="JoinButton" type="Button" parent="HostJoinMenu" unique_id=574602152]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "JOIN"
+
+[node name="LobbyMenu" type="VBoxContainer" parent="." unique_id=206435516]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.09808
+offset_top = -125.490204
+offset_right = 145.09808
+offset_bottom = 125.490204
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="PlayerList" type="ItemList" parent="LobbyMenu" unique_id=1314658946]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+allow_search = false
+
+[node name="DisconnectButton" type="Button" parent="LobbyMenu" unique_id=1361165909]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "DISCONNECT"
+
+[node name="HostMenu" type="VBoxContainer" parent="." unique_id=1391850062]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.19604
+offset_top = -119.60788
+offset_right = 190.19604
+offset_bottom = 119.60788
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+script = SubResource("GDScript_lw3rh")
+
+[node name="PortEdit" type="LineEdit" parent="HostMenu" unique_id=633201281]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Port"
+alignment = 1
+
+[node name="HostButton" type="Button" parent="HostMenu" unique_id=1042867137]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "HOST"
+
+[node name="BackButton" type="Button" parent="HostMenu" unique_id=1715336104]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[node name="JoinMenu" type="VBoxContainer" parent="." unique_id=66586343]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.19604
+offset_top = -119.60788
+offset_right = 190.19604
+offset_bottom = 119.60788
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="ServerInput" type="HBoxContainer" parent="JoinMenu" unique_id=1735774861]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="AddressEdit" type="LineEdit" parent="JoinMenu/ServerInput" unique_id=1874550145]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Address"
+alignment = 1
+max_length = 32
+context_menu_enabled = false
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="PortEdit" type="LineEdit" parent="JoinMenu/ServerInput" unique_id=1507380486]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Port"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="JoinButton" type="Button" parent="JoinMenu" unique_id=1743971334]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "JOIN
+"
+
+[node name="BackButton" type="Button" parent="JoinMenu" unique_id=1964613552]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[connection signal="pressed" from="HostJoinMenu/HostButton" to="." method="_open_host_menu"]
+[connection signal="pressed" from="HostJoinMenu/JoinButton" to="." method="_open_join_menu"]
+[connection signal="pressed" from="LobbyMenu/DisconnectButton" to="." method="_disconnect"]
+[connection signal="pressed" from="HostMenu/HostButton" to="." method="_host_game"]
+[connection signal="pressed" from="HostMenu/BackButton" to="." method="_open_host_join_menu"]
+[connection signal="pressed" from="JoinMenu/JoinButton" to="." method="_join_game"]
+[connection signal="pressed" from="JoinMenu/BackButton" to="." method="_open_host_join_menu"]
