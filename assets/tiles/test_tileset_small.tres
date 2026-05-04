@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" format=3 uid="uid://oe4juwgt4r40"]
 
-[ext_resource type="Texture2D" uid="uid://dw38ai3hjxp0a" path="res://assets/test_tiles_small.png" id="1_ehqw4"]
+[ext_resource type="Texture2D" uid="uid://dw38ai3hjxp0a" path="res://assets/tiles/test_tiles_small.png" id="1_j1o00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rr538"]
-texture = ExtResource("1_ehqw4")
+texture = ExtResource("1_j1o00")
 0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/1 = 1

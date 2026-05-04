@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dpwtjlal3e7xm"]
+
+[ext_resource type="Script" uid="uid://bqfcy8x1u4iw4" path="res://entities/map/map_controller.gd" id="1_82y5n"]
+[ext_resource type="PackedScene" uid="uid://40d2yslnekoa" path="res://entities/map/map_floor.tscn" id="2_oclmw"]
+
+[node name="MapManager" type="Node2D" unique_id=1822706002]
+script = ExtResource("1_82y5n")
+
+[node name="MapFloor" parent="." unique_id=1243557953 instance=ExtResource("2_oclmw")]
+x_length = 10
+y_length = 10
+loop_iter_max = 15

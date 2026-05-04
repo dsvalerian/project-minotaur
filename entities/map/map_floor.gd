@@ -29,29 +29,27 @@ const RIGHT = 2
 const DOWN = 3
 
 # Initialize Data Structures
-var maze = TileMapLayer.new()
 var placed_tiles = TileMapLayer.new()
 var has_left_wall = TileMapLayer.new()
 var has_upper_wall = TileMapLayer.new()
 var has_right_wall = TileMapLayer.new()
 var has_lower_wall = TileMapLayer.new()
 
-var loop_iter_max = 1500
+@export var loop_iter_max: int  = 1500
 var loop_iter_count = 0
 
 func _ready():
-	# TODO random string
-	generate(50, 50, "Sugma")
+	pass
 
-func generate(x_length, y_length, seed):
+func generate(x_length = 20, y_length = 20, floor_seed = "ligma"):
+	clear_data()
 	var rng = RandomNumberGenerator.new()
-	rng.seed = hash(seed)
+	rng.seed = hash(floor_seed)
 	
 	# TODO check if spawn and exit are valid, maybe enforce distance
 	# TODO choose extra unique room
-	# choose in/out
-	var exit_coords = Vector2i(rng.randf() * x_length, rng.randf() * y_length)
-	var spawn_coords = Vector2i(rng.randf() * x_length, rng.randf() * y_length)
+	var exit_coords = Vector2i(int(rng.randf() * x_length), int(rng.randf() * y_length))
+	var spawn_coords = Vector2i(int(rng.randf() * x_length), int(rng.randf() * y_length))
 	print(exit_coords, spawn_coords)
 	
 	var keep_generating = true
@@ -70,7 +68,7 @@ func generate(x_length, y_length, seed):
 		get_wall_layer(wall_side).set_cell(Vector2i(x, y), 0, ROOM)
 		
 		# validate that wall doesn't break the rules
-		if (!is_wall_placement_valid(x, y, wall_side, spawn_coords, exit_coords)):
+		if (!is_wall_placement_valid(spawn_coords, exit_coords)):
 			continue
 		else:
 			placed_tiles.set_cell(Vector2i(x, y), 0, ROOM)
@@ -83,7 +81,14 @@ func generate(x_length, y_length, seed):
 	
 	render(x_length, y_length)
 
-func is_wall_placement_valid(x, y, side, spawn_coords, exit_coords):
+func clear_data():
+	placed_tiles.clear()
+	has_left_wall.clear()
+	has_upper_wall.clear()
+	has_right_wall.clear() 
+	has_lower_wall.clear()
+
+func is_wall_placement_valid(spawn_coords, exit_coords):
 	return maze_has_path(spawn_coords, exit_coords) && maze_has_no_islands(spawn_coords, exit_coords)
 
 func maze_has_no_islands(spawn_coords, exit_coords):
@@ -161,7 +166,7 @@ func is_done():
 	# TODO actually check maze is gen, condition is there is exactly one path between spawn and exit
 	return loop_iter_count == loop_iter_max
 
-func apply_rules(x, y):
+func apply_rules():
 	# check neighbors have walls
 	# check edges/corners
 	# if it has three walls it has to be a DEAD_END
