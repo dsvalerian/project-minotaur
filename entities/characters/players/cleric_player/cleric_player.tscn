@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://06nih6nmhp2i"]
+
+[ext_resource type="Script" uid="uid://vjcjh0ceaov5" path="res://entities/characters/players/cleric_player/cleric_player.gd" id="1_yir8f"]
+
+[node name="ClericPlayer" type="Node" unique_id=828086869]
+script = ExtResource("1_yir8f")
+title = "Cleric"
+health = 100
