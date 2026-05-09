@@ -28,7 +28,8 @@ func _on_server_created() -> void:
 	
 func _on_server_closed() -> void:
 	store.clear()
-	_sync_peers_rpc.rpc(store.serialize())
+	Signals.peers_updated.emit()
+	print("Cleared store")
 	
 ### Client ###
 func _on_connected_to_server() -> void:

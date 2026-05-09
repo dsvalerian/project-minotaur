@@ -1,0 +1,41 @@
+[gd_resource type="TileSet" format=3 uid="uid://oe4juwgt4r40"]
+
+[ext_resource type="Texture2D" uid="uid://dw38ai3hjxp0a" path="res://features/map/tiles/test_tiles_small.png" id="1_42hxd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rr538"]
+texture = ExtResource("1_42hxd")
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/transpose = true
+1:0/next_alternative_id = 4
+1:0/0 = 0
+1:0/1 = 1
+1:0/1/flip_v = true
+1:0/2 = 2
+1:0/2/transpose = true
+1:0/3 = 3
+1:0/3/flip_v = true
+1:0/3/transpose = true
+2:0/0 = 0
+3:0/next_alternative_id = 5
+3:0/0 = 0
+3:0/1 = 1
+3:0/1/transpose = true
+3:0/2 = 2
+3:0/2/flip_h = true
+3:0/3 = 3
+3:0/3/flip_v = true
+3:0/3/transpose = true
+0:1/next_alternative_id = 4
+0:1/0 = 0
+0:1/1 = 1
+0:1/1/transpose = true
+0:1/2 = 2
+0:1/2/flip_h = true
+0:1/3 = 3
+0:1/3/flip_v = true
+0:1/3/transpose = true
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_rr538")

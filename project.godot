@@ -11,23 +11,19 @@ config_version=5
 [application]
 
 config/name="Project Minotaur"
-run/main_scene="uid://b8f76y0vueqxj"
+run/main_scene="uid://b1r82j4ci2ra8"
 config/features=PackedStringArray("4.6", "Forward Plus")
-run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
-NetworkManager="*uid://d2vxoxundw5tw"
 Signals="*uid://bclsk3bhr4ym7"
+NetworkManager="*uid://d2vxoxundw5tw"
 PeerManager="*uid://bgkr1kmlaqhc6"
 
-[display]
+[editor_plugins]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
 [physics]
 
