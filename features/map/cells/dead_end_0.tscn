@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ndcnqc6obybr"]
+
+[ext_resource type="Script" uid="uid://lqi8kd5v6yrw" path="res://features/map/cells/cell.gd" id="1_6713s"]
+
+[node name="DeadEnd0" type="Node2D" unique_id=178561163]
+script = ExtResource("1_6713s")
+upper_wall = true
+right_wall = true
+lower_wall = true
+tile_atlas_coords = Vector3i(0, 1, 0)
