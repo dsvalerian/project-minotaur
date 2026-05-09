@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bpv0j4dxbtwo2"]
-
-[ext_resource type="Script" uid="uid://cqr2h4lgsotms" path="res://systems/game/game_manager/game_manager.gd" id="1_dl1w7"]
-[ext_resource type="PackedScene" uid="uid://8stl1wk5u5ye" path="res://systems/turn/turn_manager/turn_manager.tscn" id="2_avsbp"]
-
-[node name="GameManager" type="Node" unique_id=456663166]
-script = ExtResource("1_dl1w7")
-
-[node name="TurnManager" parent="." unique_id=1398999442 instance=ExtResource("2_avsbp")]

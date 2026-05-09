@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Project Minotaur"
-run/main_scene="uid://b8f76y0vueqxj"
+run/main_scene="uid://b1r82j4ci2ra8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Signals="*uid://bclsk3bhr4ym7"
+NetworkManager="*uid://d2vxoxundw5tw"
+PeerManager="*uid://bgkr1kmlaqhc6"
 
 [editor_plugins]
 

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dykcukoc8p25x"]
+
+[ext_resource type="Script" uid="uid://lqi8kd5v6yrw" path="res://features/map/cells/cell.gd" id="1_k1qg4"]
+
+[node name="Corner0" type="Node2D" unique_id=1800902099]
+script = ExtResource("1_k1qg4")
+upper_wall = true
+right_wall = true
+tile_atlas_coords = Vector3i(1, 0, 0)
