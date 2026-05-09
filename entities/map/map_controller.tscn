@@ -7,6 +7,4 @@
 script = ExtResource("1_82y5n")
 
 [node name="MapFloor" parent="." unique_id=1243557953 instance=ExtResource("2_oclmw")]
-x_length = 10
-y_length = 10
 loop_iter_max = 15

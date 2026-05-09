@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dna4o2l6nr8ej"]
+
+[ext_resource type="Script" uid="uid://lqi8kd5v6yrw" path="res://entities/map/cells/cell.gd" id="1_iq10o"]
+
+[node name="Cell" type="Node2D" unique_id=851735037]
+script = ExtResource("1_iq10o")
