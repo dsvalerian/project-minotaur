@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bqfcy8x1u4iw4" path="res://features/map/map_manager.gd" id="1_u7hhg"]
 [ext_resource type="PackedScene" uid="uid://40d2yslnekoa" path="res://features/map/map_floor.tscn" id="2_430cx"]
+[ext_resource type="PackedScene" uid="uid://l13yxify6iet" path="res://features/map/room_floor.tscn" id="3_430cx"]
 
 [node name="MapManager" type="Node2D" unique_id=1822706002]
 script = ExtResource("1_u7hhg")
+
+[node name="RoomFloor" parent="." unique_id=46292497 instance=ExtResource("3_430cx")]
 
 [node name="MapFloor" parent="." unique_id=1243557953 instance=ExtResource("2_430cx")]

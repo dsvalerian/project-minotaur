@@ -1,17 +1,14 @@
 extends Node2D
 
-var rng = RandomNumberGenerator.new()
+@onready var map_floor = $MapFloor
+@onready var room_floor = $RoomFloor
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	change_floor(0, 10, 10)
+	print("HERE")
+	change_floor(10, 10)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func change_floor(floor_number: int, x_length: int, y_length: int):
-	var map_floor = $MapFloor
-	#var seed = rng.randi()
-	var seed = "sugma"
-	map_floor.generate(x_length, y_length, seed)
+func change_floor(x_length: int, y_length: int):
+	var rng_seed = "sugma"
+	map_floor.generate(x_length, y_length, rng_seed)
+	room_floor.set_room(Vector2i(0,0), "ENTRANCE")
+	room_floor.set_room(Vector2i(x_length-1, y_length-1), "EXIT")
