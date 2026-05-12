@@ -5,23 +5,14 @@ enum Direction {LEFT, UP, RIGHT, DOWN}
 
 func generate(x_length = 20, y_length = 20, floor_seed = "ligma") -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	rng.seed = hash(floor_seed)
-	var visited = TileMapLayer.new()
-	var cells = [];
-	cells.resize(x_length)
-	for x in range(x_length):
-		var arr = []
-		arr.resize(y_length)
-		cells[x] = arr;
-	
+	generate_walls_and_floors_for_testing(x_length, y_length)
 
 func walk(coords: Vector2i, visited: Array[Vector2i]):
 	pass
 
 func can_move_left(coords: Vector2i, empty_tiles: Array) -> bool:
 	var coords_to_move_to = Vector2i(coords.x - 1, coords.y)
-	return empty_tiles.has()
-
+	return false;
 
 func random_coords(rng, x_max, y_max) -> Vector2i:
 	return Vector2i(rng.randi_range(0, x_max - 1), rng.randi_range(0, y_max-1))

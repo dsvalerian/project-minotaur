@@ -4,6 +4,7 @@ extends Node2D
 @onready var room_floor = $RoomFloor
 
 func _ready() -> void:
+	print("HERE")
 	change_floor(10, 10)
 
 func change_floor(x_length: int, y_length: int):
