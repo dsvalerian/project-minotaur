@@ -1,17 +1,35 @@
 extends TileMapLayer
 class_name Map
 
-# Initialize Data Structures
-var placed_tiles: TileMapLayer = TileMapLayer.new()
-var cells: Array[Array]
+enum Direction {LEFT, UP, RIGHT, DOWN}
 
-func generate(x_length = 20, y_length = 20, floor_seed = "ligma"):
+func generate(x_length = 20, y_length = 20, floor_seed = "ligma") -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = hash(floor_seed)
+	var visited = TileMapLayer.new()
+	var cells = [];
 	cells.resize(x_length)
-	for i in range(x_length):
-		cells[i] = []
-		cells[i].resize(y_length)
+	for x in range(x_length):
+		var arr = []
+		arr.resize(y_length)
+		cells[x] = arr;
+	
+
+func walk(coords: Vector2i, visited: Array[Vector2i]):
+	pass
+
+func can_move_left(coords: Vector2i, empty_tiles: Array) -> bool:
+	var coords_to_move_to = Vector2i(coords.x - 1, coords.y)
+	return empty_tiles.has()
+
+
+func random_coords(rng, x_max, y_max) -> Vector2i:
+	return Vector2i(rng.randi_range(0, x_max - 1), rng.randi_range(0, y_max-1))
+
+func get_placeholder_cell() -> Cell:
+	return CellFactory.get_cell_from_walls(false, false, false, false);
+
+func generate_walls_and_floors_for_testing(x_length, y_length):
 	var cell;
 	for x in range(x_length):
 		for y in range(y_length):
@@ -38,12 +56,3 @@ func generate(x_length = 20, y_length = 20, floor_seed = "ligma"):
 					cell = CellFactory.get_cell_from_walls(false, false, false, false)
 			set_cell(Vector2i(x, y), 0, cell.get_atlas_coords_2d(), cell.get_alt_tile_id())
 					
-	# var entrance: Vector2i = choose_entrance_corner(x_length, y_length)
-	# var exit: Vector2i = choose_exit_corner(x_length, y_length)
-
-
-#func choose_entrance_corner(x_length, y_length) -> Vector2i:
-#	return Vector2i(0, 0)
-#
-#func choose_exit_corner(x_length, y_length) -> Vector2i:
-#	return Vector2i(x_length - 1, y_length - 1)

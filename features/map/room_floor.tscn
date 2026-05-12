@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://l13yxify6iet"]
+
+[ext_resource type="TileSet" uid="uid://cr8ldcy7ngxy3" path="res://features/map/tiles/rooms.tres" id="1_3831s"]
+[ext_resource type="Script" uid="uid://cc4kqcy4trl5u" path="res://features/map/room_floor.gd" id="2_d4gld"]
+
+[node name="RoomFloor" type="TileMapLayer" unique_id=46292497]
+tile_set = ExtResource("1_3831s")
+script = ExtResource("2_d4gld")
