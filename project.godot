@@ -23,7 +23,7 @@ PeerManager="*uid://bgkr1kmlaqhc6"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg", "res://addons/sprite_painter/plugin.cfg")
 
 [physics]
 

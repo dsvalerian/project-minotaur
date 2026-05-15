@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ji6hfk53td6f"]
+
+[ext_resource type="Script" uid="uid://d3010wnr0b201" path="res://features/game_manager/gameplay/hud/turn_manager.gd" id="1_0lshv"]
+
+[node name="TurnManager" type="Control" unique_id=1739000001]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 103.0
+grow_horizontal = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("1_0lshv")
+
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="." unique_id=1219564644]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 101.0
+grow_horizontal = 2
+alignment = 1

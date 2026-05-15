@@ -1,11 +1,8 @@
 extends Node2D
+class_name MapManager
 
 @onready var map_floor = $MapFloor
 @onready var room_floor = $RoomFloor
-
-func _ready() -> void:
-	print("HERE")
-	change_floor(10, 10)
 
 func change_floor(x_length: int, y_length: int):
 	var rng_seed = "sugma"

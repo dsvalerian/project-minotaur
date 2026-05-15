@@ -7,6 +7,6 @@
 [node name="MapManager" type="Node2D" unique_id=1822706002]
 script = ExtResource("1_u7hhg")
 
-[node name="RoomFloor" parent="." unique_id=46292497 instance=ExtResource("3_430cx")]
-
 [node name="MapFloor" parent="." unique_id=1243557953 instance=ExtResource("2_430cx")]
+
+[node name="RoomFloor" parent="." unique_id=46292497 instance=ExtResource("3_430cx")]

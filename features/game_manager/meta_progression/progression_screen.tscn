@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://charpox2elfg8"]
+
+[node name="ProgressionScreen" type="Control" unique_id=1206391932]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelSelection" type="VBoxContainer" parent="." unique_id=1009355622]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level1" type="Button" parent="LevelSelection" unique_id=1170128222]
+layout_mode = 2
+text = "Level 1"

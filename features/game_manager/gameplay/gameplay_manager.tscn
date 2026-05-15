@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cigjoamnunrg3"]
+
+[ext_resource type="Script" uid="uid://cnul5yfjqtt6s" path="res://features/game_manager/gameplay/gameplay_manager.gd" id="1_5qggd"]
+
+[node name="GameplayManager" type="Node2D" unique_id=1738029408]
+script = ExtResource("1_5qggd")
+
+[node name="TurnOrder" type="Control" parent="." unique_id=2093622573]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 90.0
+
+[node name="EndTurnButton" type="Button" parent="." unique_id=2003342585]
+offset_left = 950.0
+offset_top = 499.0
+offset_right = 1105.0
+offset_bottom = 552.0
+text = "End Turn"
