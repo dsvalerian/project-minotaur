@@ -30,4 +30,13 @@ signal player_registry_updated
 @warning_ignore("unused_signal")
 signal loaded_game
 @warning_ignore("unused_signal")
-signal turn_ended
+signal turn_ended(character: Character)
+@warning_ignore("unused_signal")
+signal turn_started(character: Character)
+
+ 
+ # Characters
+@warning_ignore("unused_signal")
+signal character_spawned(character: Character)
+@warning_ignore("unused_signal")
+signal character_died(character: Character)

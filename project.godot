@@ -20,10 +20,11 @@ config/icon="res://icon.svg"
 Signals="*uid://bclsk3bhr4ym7"
 NetworkManager="*uid://d2vxoxundw5tw"
 PeerManager="*uid://bgkr1kmlaqhc6"
+SignalLogger="*uid://dlijc5tyyyf7q"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg", "res://addons/sprite_painter/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
 [physics]
 

@@ -4,18 +4,16 @@
 
 [node name="TurnManager" type="Control" unique_id=1739000001]
 layout_mode = 3
-anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 103.0
+anchor_bottom = 0.98800004
+offset_left = 128.0
+offset_right = -64.0
+offset_bottom = -537.224
 grow_horizontal = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 script = ExtResource("1_0lshv")
 
 [node name="TurnOrderDisplay" type="HBoxContainer" parent="." unique_id=1219564644]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 101.0
-grow_horizontal = 2
+layout_mode = 0
 alignment = 1

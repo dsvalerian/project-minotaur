@@ -1,19 +1,27 @@
 [gd_scene format=3 uid="uid://cigjoamnunrg3"]
 
 [ext_resource type="Script" uid="uid://cnul5yfjqtt6s" path="res://features/game_manager/gameplay/gameplay_manager.gd" id="1_5qggd"]
+[ext_resource type="PackedScene" uid="uid://ji6hfk53td6f" path="res://features/game_manager/gameplay/hud/turn_manager.tscn" id="2_5qggd"]
 
 [node name="GameplayManager" type="Node2D" unique_id=1738029408]
 script = ExtResource("1_5qggd")
 
-[node name="TurnOrder" type="Control" parent="." unique_id=2093622573]
-layout_mode = 3
+[node name="TurnManager" parent="." unique_id=1739000001 instance=ExtResource("2_5qggd")]
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 90.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+focus_neighbor_right = NodePath("../EndTurnButton")
 
 [node name="EndTurnButton" type="Button" parent="." unique_id=2003342585]
-offset_left = 950.0
-offset_top = 499.0
-offset_right = 1105.0
-offset_bottom = 552.0
+offset_left = 1016.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 80.0
 text = "End Turn"
+
+[connection signal="pressed" from="EndTurnButton" to="." method="_on_end_turn_button_pressed"]

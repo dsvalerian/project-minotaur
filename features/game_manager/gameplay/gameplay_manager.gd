@@ -1,10 +1,9 @@
 extends Node2D
 
 var characters: Array[Character]
-var turn_manager: TurnManager
+@onready var turn_manager: TurnManager = $TurnManager
 
 func _ready() -> void:
-	$EndTurnButton.pressed.connect(_on_turn_end)
 	var fighter_scene = CharacterFactory.getCharacterScene(CharacterFactory.CharacterClass.FIGHTER)
 	var priest_scene = CharacterFactory.getCharacterScene(CharacterFactory.CharacterClass.PRIEST)
 	var rogue_scene = CharacterFactory.getCharacterScene(CharacterFactory.CharacterClass.ROGUE)
@@ -17,13 +16,12 @@ func _ready() -> void:
 	characters.push_back(priest)
 	characters.push_back(rogue)
 	characters.push_back(wizard)
-	var turn_manager_scene = preload("res://features/game_manager/gameplay/hud/turn_manager.tscn")
-	turn_manager = turn_manager_scene.instantiate()
-	turn_manager.setup(characters)
-	$TurnOrder.add_child(turn_manager)
+	add_child(fighter)
+	add_child(priest)
+	add_child(rogue)
+	add_child(wizard)
 
-func _on_turn_end():
-	Signals.turn_ended.emit()
-
-func setup():
-	pass
+func _on_end_turn_button_pressed() -> void:
+	var character = turn_manager.get_next_character()
+	print("End turn button pressed by character " + character.to_string())
+	Signals.turn_ended.emit(character)

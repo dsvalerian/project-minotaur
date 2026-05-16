@@ -5,7 +5,10 @@ var characters: Array[Character]
 @onready var turn_order_display = $TurnOrderDisplay
 
 func _ready():
-	Signals.turn_ended.connect(_on_end_turn_button_pressed)
+	print("Building TurnManager")
+	Signals.turn_ended.connect(_on_end_turn)
+	Signals.character_spawned.connect(_on_character_spawn)
+	Signals.character_died.connect(_on_character_death)
 	render_menu()
 
 func render_menu() -> void:
@@ -15,14 +18,25 @@ func render_menu() -> void:
 		var child = characters[i].get_portrait()
 		turn_order_display.add_child(child)
 
-func _on_end_turn_button_pressed() -> void:
-	var just_went: Character = characters.pop_front()
-	print(just_went)
-	characters.push_back(just_went)
+func _on_character_spawn(character: Character) -> void:
+	characters.push_back(character)
 	render_menu()
+
+func _on_end_turn(character: Character) -> void:
+	if (characters[0] == character):
+		var just_went: Character = characters.pop_front()
+		characters.push_back(just_went)
+	render_menu()
+
+func _on_character_death(character: Character) -> void:
+	if (characters[0] == character):
+		characters.pop_front()
+		Signals.turn_ended.emit(character)
+	else:
+		for i in range(characters.size()):
+			if (characters[i] == character):
+				characters.remove_at(i)
+				break
 
 func get_next_character() -> Character:
 	return characters.front()
-
-func setup(_characters: Array[Character]):
-	characters = _characters
