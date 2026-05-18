@@ -21,6 +21,13 @@ Signals="*uid://bclsk3bhr4ym7"
 NetworkManager="*uid://d2vxoxundw5tw"
 PeerManager="*uid://bgkr1kmlaqhc6"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
@@ -31,4 +38,7 @@ enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

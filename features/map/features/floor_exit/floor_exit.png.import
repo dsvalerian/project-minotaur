@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://55v4n4rkmgmd"
-path="res://.godot/imported/floor_entrance.png-d275b70e2890b9e28b8dbb130452ab03.ctex"
+uid="uid://q3e2ekvebxqk"
+path="res://.godot/imported/floor_exit.png-9e6d77b6884c015dd9e4a760bcc86ce4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/map/cell/features/floor_entrance/floor_entrance.png"
-dest_files=["res://.godot/imported/floor_entrance.png-d275b70e2890b9e28b8dbb130452ab03.ctex"]
+source_file="res://features/map/features/floor_exit/floor_exit.png"
+dest_files=["res://.godot/imported/floor_exit.png-9e6d77b6884c015dd9e4a760bcc86ce4.ctex"]
 
 [params]
 

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bwj46fhu6psgo"]
 
 [ext_resource type="Script" uid="uid://p1sg2h8fcf14" path="res://features/map/map_manager.gd" id="1_dgjgn"]
-[ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map_renderer.gd" id="2_430cx"]
+[ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map.gd" id="2_430cx"]
 [ext_resource type="Texture2D" uid="uid://mw2st1d43wym" path="res://features/map/tile_sets/debug.png" id="2_u7hhg"]
+[ext_resource type="PackedScene" uid="uid://2aj2ayk8gjbn" path="res://features/camera/camera.tscn" id="4_n6fde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_430cx"]
 texture = ExtResource("2_u7hhg")
@@ -34,15 +35,15 @@ sources/0 = SubResource("TileSetAtlasSource_430cx")
 
 [node name="MapManager" type="Node2D" unique_id=1580314556]
 script = ExtResource("1_dgjgn")
-seed = 10000
-size = 100
+map_seed = 42
+map_size = 100
 
-[node name="MapRenderer" type="Node2D" parent="." unique_id=706341325]
+[node name="Map" type="Node2D" parent="." unique_id=706341325]
 script = ExtResource("2_430cx")
 
-[node name="CellLayer" type="TileMapLayer" parent="MapRenderer" unique_id=1177148956]
+[node name="CellLayer" type="TileMapLayer" parent="Map" unique_id=1177148956]
 tile_set = SubResource("TileSet_n6fde")
 
-[node name="FeatureLayer" type="Node2D" parent="MapRenderer" unique_id=1406394723]
+[node name="FeatureLayer" type="Node2D" parent="Map" unique_id=1406394723]
 
-[node name="Camera2D" type="Camera2D" parent="MapRenderer" unique_id=2030795357]
+[node name="Camera" parent="." unique_id=438464646 instance=ExtResource("4_n6fde")]

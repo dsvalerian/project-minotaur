@@ -16,13 +16,13 @@ const OPPOSITES = {
 
 var _rng: RandomNumberGenerator
 
-func _init(seed: int):
+func _init(map_seed: int):
 	_rng = RandomNumberGenerator.new()
-	_rng.seed = seed
+	_rng.seed = map_seed
 
 # Return a dictionary of position (Vector2i) -> CellData
 func generate(size: int) -> MapData:
-	print("Generating map with seed %d..." % [seed])
+	print("Generating map with seed %d..." % [_rng.seed])
 	
 	var map = MapData.new()
 	map.cells = _generate_cells(size)

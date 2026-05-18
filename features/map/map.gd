@@ -1,9 +1,9 @@
-class_name MapRenderer extends Node2D
+class_name Map extends Node2D
 
 const FEATURE_SCENES: Dictionary[CellFeature.Type, Resource] = {
-	CellFeature.Type.FLOOR_ENTRANCE: preload("res://features/map/cell/features/floor_entrance/floor_entrance.tscn"),
-	CellFeature.Type.FLOOR_EXIT: preload("res://features/map/cell/features/floor_exit/floor_exit.tscn"),
-	CellFeature.Type.TREASURE_CHEST: preload("res://features/map/cell/features/treasure_chest/treasure_chest.tscn")
+	CellFeature.Type.FLOOR_ENTRANCE: preload("res://features/map/features/floor_entrance/floor_entrance.tscn"),
+	CellFeature.Type.FLOOR_EXIT: preload("res://features/map/features/floor_exit/floor_exit.tscn"),
+	CellFeature.Type.TREASURE_CHEST: preload("res://features/map/features/treasure_chest/treasure_chest.tscn")
 }
 
 const MASK_TO_ATLAS: Dictionary[int, Vector2i] = {
@@ -34,12 +34,10 @@ const MASK_TO_ATLAS: Dictionary[int, Vector2i] = {
 
 @onready var cell_layer: TileMapLayer = $CellLayer
 @onready var feature_layer: Node2D = $FeatureLayer
-@onready var camera: Camera2D = $Camera2D
 		
-func render(map: MapData) -> void:
+func create(map: MapData) -> void:
 	_render_cells(map)
-	_render_features(map)
-	_center_camera_on_map(map)
+	_instantiate_features(map)
 
 func _render_cells(map: MapData) -> void:
 	# Render by accessing the coordinates in the tilemap
@@ -47,14 +45,8 @@ func _render_cells(map: MapData) -> void:
 	for cell in map.cells.values():
 		cell_layer.set_cell(cell.grid_position, 0, MASK_TO_ATLAS[cell.get_exits()])
 
-func _render_features(map: MapData) -> void:
-	for position in map.features:
-		var node: CellFeature = FEATURE_SCENES[map.features[position]].instantiate()
-		node.position = cell_layer.map_to_local(position)
+func _instantiate_features(map: MapData) -> void:
+	for pos in map.features:
+		var node: CellFeature = FEATURE_SCENES[map.features[pos]].instantiate()
+		node.position = cell_layer.map_to_local(pos)
 		feature_layer.add_child(node)
-
-func _center_camera_on_map(map: MapData) -> void:
-	var top_left = cell_layer.map_to_local(map.bounds.position)
-	var bottom_right = cell_layer.map_to_local(map.bounds.position + map.bounds.size)
-	var center = (top_left + bottom_right) / 2.0
-	camera.global_position = center

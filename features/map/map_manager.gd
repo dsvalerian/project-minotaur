@@ -1,16 +1,16 @@
 class_name MapManager extends Node2D
 
-@export var seed: int
-@export var size: int
+@export var map_seed: int
+@export var map_size: int
 
-@onready var renderer = $MapRenderer
-@onready var generator = MapGenerator.new(seed)
+@onready var map = $Map
+@onready var generator = MapGenerator.new(map_seed)
 
-var _map: MapData
+var _map_data: MapData
 
 func _ready():
 	create_map()
 	
 func create_map():
-	_map = generator.generate(size)
-	renderer.render(_map)
+	_map_data = generator.generate(map_size)
+	map.create(_map_data)
