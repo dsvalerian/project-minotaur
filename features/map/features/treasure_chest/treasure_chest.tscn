@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dtx42s18anwlw"]
+
+[ext_resource type="Script" uid="uid://o1m1sf0x8ant" path="res://features/map/features/treasure_chest/treasure_chest.gd" id="1_sqwam"]
+[ext_resource type="Texture2D" uid="uid://gnogontfaye1" path="res://features/map/features/treasure_chest/treasure_chest.png" id="2_8hbwt"]
+
+[node name="TreasureChest" type="Node2D" unique_id=525415141]
+script = ExtResource("1_sqwam")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=854079283]
+texture = ExtResource("2_8hbwt")
