@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dn0waij8yamhy"]
-
-[node name="Exit" type="Node2D" unique_id=15024568]
-
-[node name="Label" type="Label" parent="." unique_id=1086389990]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(1, 0, 1, 1)
-text = "O"

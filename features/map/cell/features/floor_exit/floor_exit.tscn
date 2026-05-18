@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dots8oytq7v6l"]
+
+[ext_resource type="Script" uid="uid://c5s3e58u58xne" path="res://features/map/cell/features/floor_exit/floor_exit.gd" id="1_gjfd4"]
+[ext_resource type="Texture2D" uid="uid://q3e2ekvebxqk" path="res://features/map/cell/features/floor_exit/floor_exit.png" id="2_ev0cb"]
+
+[node name="FloorExit" type="Node2D" unique_id=83160459]
+script = ExtResource("1_gjfd4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=384609493]
+texture = ExtResource("2_ev0cb")

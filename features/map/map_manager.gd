@@ -1,14 +1,16 @@
-extends Node2D
+class_name MapManager extends Node2D
 
-@onready var map_floor = $MapFloor
-@onready var room_floor = $RoomFloor
+@export var seed: int
+@export var size: int
 
-func _ready() -> void:
-	print("HERE")
-	change_floor(10, 10)
+@onready var renderer = $MapRenderer
+@onready var generator = MapGenerator.new(seed)
 
-func change_floor(x_length: int, y_length: int):
-	var rng_seed = "sugma"
-	map_floor.generate(x_length, y_length, rng_seed)
-	room_floor.set_room(Vector2i(0,0), "ENTRANCE")
-	room_floor.set_room(Vector2i(x_length-1, y_length-1), "EXIT")
+var _map: MapData
+
+func _ready():
+	create_map()
+	
+func create_map():
+	_map = generator.generate(size)
+	renderer.render(_map)
