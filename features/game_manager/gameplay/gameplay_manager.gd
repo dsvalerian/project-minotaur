@@ -1,7 +1,7 @@
 extends Node2D
 
 var characters: Array[Character]
-@onready var turn_manager: TurnManager = $TurnManager
+@onready var turn_manager: TurnManager = $CanvasLayer/TurnManagerBase/TurnManagerMargin/TurnManager
 
 func _ready() -> void:
 	var fighter_scene = CharacterFactory.getCharacterScene(CharacterFactory.CharacterClass.FIGHTER)
