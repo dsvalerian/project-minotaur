@@ -1,4 +1,4 @@
-class_name Map extends Node2D
+class_name GameMap extends Node2D
 
 const FEATURE_SCENES: Dictionary[CellFeature.Type, Resource] = {
 	CellFeature.Type.FLOOR_ENTRANCE: preload("res://features/map/features/floor_entrance/floor_entrance.tscn"),

@@ -3,8 +3,8 @@ class_name MapManager extends Node2D
 @export var map_seed: int
 @export var map_size: int
 
-@onready var map = $Map
-@onready var generator = MapGenerator.new(map_seed)
+@onready var map: GameMap = $GameMap
+@onready var generator: MapGenerator = MapGenerator.new(map_seed)
 
 var _map_data: MapData
 
