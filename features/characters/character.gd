@@ -1,7 +1,7 @@
 extends Node2D 
 class_name Character
 
-@export var title: String
+@export var title: String = "John Character"
 
 @export_group("Stats")
 @export var health: int
@@ -15,8 +15,11 @@ func get_portrait() -> Container:
 	rect.custom_minimum_size = Vector2(32, 32)
 	var ratio = AspectRatioContainer.new()
 	ratio.add_child(rect)
-	ratio.ratio = 9 / 16;
+	ratio.ratio = float(9) / float(16);
 	return ratio 
+
+func get_sprite() -> Sprite2D:
+	return $CharacterSprite
 
 func _ready() -> void:
 	Signals.character_spawned.emit(self)

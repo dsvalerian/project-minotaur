@@ -1,5 +1,7 @@
 class_name TurnManager extends Control
 
+var portrait_scene = preload("res://features/game_manager/gameplay/hud/character_portrait.tscn")
+
 var characters: Array[Character]
 
 @onready var turn_order_display = $TurnOrderDisplay
@@ -14,8 +16,9 @@ func render_menu() -> void:
 	for child in turn_order_display.get_children():
 		child.queue_free()
 	for i in range(characters.size()):
-		var child = characters[i].get_portrait()
-		turn_order_display.add_child(child)
+		var portrait = portrait_scene.instantiate()
+		portrait.character = characters[i]
+		turn_order_display.add_child(portrait)
 
 func _on_character_spawn(character: Character) -> void:
 	characters.push_back(character)
