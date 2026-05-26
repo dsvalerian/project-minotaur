@@ -1,12 +1,16 @@
 class_name CharacterPortrait extends Container
 
-@export var character: Character
-
+var character: Character
 var picture: TextureRect
 var name_label: Label
 var aspect_ratio_container: AspectRatioContainer
 
-const scene: PackedScene = preload("res://features/game_manager/gameplay/hud/character_portrait.tscn")
+const portrait_scene: PackedScene = preload("res://features/game_manager/gameplay/hud/character_portrait.tscn")
+
+static func _create_portrait(_character: Character) -> CharacterPortrait:
+	var portrait = portrait_scene.instantiate()
+	portrait.character = _character
+	return portrait
 
 func _ready() -> void:
 	picture = $PortraitAspectRatioContainer/PortraitBorder/CharacterPicture
@@ -19,4 +23,4 @@ func _ready() -> void:
 	picture.stretch_mode = TextureRect.STRETCH_SCALE
 	picture.custom_minimum_size = Vector2(32, 32)
 	name_label.text = character.title
-	aspect_ratio_container.ratio = float(9) / float(16)
+	# aspect_ratio_container.ratio = float(9) / float(16)

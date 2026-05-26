@@ -1,2 +1,1 @@
-extends Character
-class_name Fighter
+class_name Fighter extends Character

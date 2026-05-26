@@ -1,5 +1,4 @@
-extends Node2D 
-class_name Character
+class_name Character extends Node2D 
 
 @export var title: String = "John Character"
 

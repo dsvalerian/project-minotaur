@@ -33,6 +33,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://jkp80cnnjag3"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -13,26 +13,73 @@ border_width_bottom = 10
 [node name="GameplayManager" type="Node2D" unique_id=1738029408]
 script = ExtResource("1_5qggd")
 
-[node name="CanvasLayer" type="Control" parent="." unique_id=880393167]
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1475686053]
+
+[node name="TopBar" type="HBoxContainer" parent="HUD" unique_id=632528682]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
 grow_horizontal = 2
 
-[node name="TurnManagerBase" type="Panel" parent="CanvasLayer" unique_id=155610727]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 1.0
-offset_right = 908.0
-offset_bottom = 115.0
+[node name="Settings" type="Button" parent="HUD/TopBar" unique_id=974243571]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+
+[node name="TurnOrderDisplay" type="MarginContainer" parent="HUD/TopBar" unique_id=1229372020]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="EndTurnButton" type="Button" parent="HUD/TopBar" unique_id=306543109]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "End Turn"
+
+[node name="BottomBar" type="HBoxContainer" parent="HUD" unique_id=1530994835]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -248.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InventoryMargin" type="MarginContainer" parent="HUD/BottomBar" unique_id=317160621]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="AbilityMargin" type="MarginContainer" parent="HUD/BottomBar" unique_id=1905871386]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartyStatsBar" type="VBoxContainer" parent="HUD" unique_id=1403916738]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="TurnManagerBase" type="Panel" parent="HUD" unique_id=155610727]
+visible = false
+offset_left = 752.0
+offset_right = 1418.0
+offset_bottom = 114.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5qggd")
 
-[node name="TurnManagerMargin" type="MarginContainer" parent="CanvasLayer/TurnManagerBase" unique_id=2006005100]
+[node name="TurnManagerMargin" type="MarginContainer" parent="HUD/TurnManagerBase" unique_id=2006005100]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 534.0
+offset_top = -1.0
+offset_right = 534.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
@@ -40,12 +87,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TurnManager" type="Control" parent="CanvasLayer/TurnManagerBase/TurnManagerMargin" unique_id=1801284728]
+[node name="TurnManager" type="Control" parent="HUD/TurnManagerBase/TurnManagerMargin" unique_id=1801284728]
 layout_mode = 2
 script = ExtResource("2_5qggd")
 metadata/_custom_type_script = "uid://d3010wnr0b201"
 
-[node name="TurnOrderDisplay" type="HBoxContainer" parent="CanvasLayer/TurnManagerBase/TurnManagerMargin/TurnManager" unique_id=1371912120]
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/TurnManagerBase/TurnManagerMargin/TurnManager" unique_id=1371912120]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -53,12 +100,4 @@ anchor_bottom = 0.5
 grow_vertical = 2
 alignment = 1
 
-[node name="EndTurnButton" type="Button" parent="CanvasLayer" unique_id=306543109]
-layout_mode = 0
-offset_left = 993.0
-offset_top = 53.0
-offset_right = 1071.0
-offset_bottom = 84.0
-text = "End Turn"
-
-[connection signal="pressed" from="CanvasLayer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="HUD/TopBar/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
