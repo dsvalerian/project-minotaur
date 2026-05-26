@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnul5yfjqtt6s" path="res://features/game_manager/gameplay/gameplay_manager.gd" id="1_5qggd"]
 [ext_resource type="Script" uid="uid://d3010wnr0b201" path="res://features/game_manager/gameplay/turn_manager.gd" id="2_5qggd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qggd"]
-bg_color = Color(0.26713133, 0.65279776, 0.788526, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+[ext_resource type="PackedScene" uid="uid://bwj46fhu6psgo" path="res://features/map/map_manager.tscn" id="3_6vu0x"]
 
 [node name="GameplayManager" type="Node2D" unique_id=1738029408]
 script = ExtResource("1_5qggd")
@@ -26,10 +20,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
-[node name="TurnOrderDisplay" type="MarginContainer" parent="HUD/TopBar" unique_id=1229372020]
+[node name="TurnManager" type="HBoxContainer" parent="HUD/TopBar" unique_id=1371912120]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
+alignment = 1
+script = ExtResource("2_5qggd")
 
 [node name="EndTurnButton" type="Button" parent="HUD/TopBar" unique_id=306543109]
 layout_mode = 2
@@ -64,40 +60,6 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_vertical = 4
 
-[node name="TurnManagerBase" type="Panel" parent="HUD" unique_id=155610727]
-visible = false
-offset_left = 752.0
-offset_right = 1418.0
-offset_bottom = 114.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5qggd")
-
-[node name="TurnManagerMargin" type="MarginContainer" parent="HUD/TurnManagerBase" unique_id=2006005100]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 534.0
-offset_top = -1.0
-offset_right = 534.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="TurnManager" type="Control" parent="HUD/TurnManagerBase/TurnManagerMargin" unique_id=1801284728]
-layout_mode = 2
-script = ExtResource("2_5qggd")
-metadata/_custom_type_script = "uid://d3010wnr0b201"
-
-[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/TurnManagerBase/TurnManagerMargin/TurnManager" unique_id=1371912120]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-grow_vertical = 2
-alignment = 1
+[node name="MapManager" parent="." unique_id=1580314556 instance=ExtResource("3_6vu0x")]
 
 [connection signal="pressed" from="HUD/TopBar/EndTurnButton" to="." method="_on_end_turn_button_pressed"]

@@ -2,8 +2,6 @@ class_name TurnManager extends Control
 
 var characters: Array[Character]
 
-@onready var turn_order_display = $TurnOrderDisplay
-
 func _ready():
 	Signals.turn_ended.connect(_on_end_turn)
 	Signals.character_spawned.connect(_on_character_spawn)
@@ -11,11 +9,10 @@ func _ready():
 	render_menu()
 
 func render_menu() -> void:
-	for child in turn_order_display.get_children():
+	for child in get_children():
 		child.queue_free()
 	for i in range(characters.size()):
-		var portrait: CharacterPortrait = CharacterPortrait._create_portrait(characters[i])
-		turn_order_display.add_child(portrait)
+		add_child(characters[i].get_portrait())
 
 func _on_character_spawn(character: Character) -> void:
 	characters.push_back(character)

@@ -46,4 +46,6 @@ tile_set = SubResource("TileSet_n6fde")
 
 [node name="FeatureLayer" type="Node2D" parent="Map" unique_id=1406394723]
 
+[node name="CharacterLayer" type="Node2D" parent="Map" unique_id=2004111606]
+
 [node name="Camera" parent="." unique_id=438464646 instance=ExtResource("4_n6fde")]

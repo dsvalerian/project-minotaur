@@ -34,10 +34,11 @@ const MASK_TO_ATLAS: Dictionary[int, Vector2i] = {
 
 @onready var cell_layer: TileMapLayer = $CellLayer
 @onready var feature_layer: Node2D = $FeatureLayer
+@onready var character_layer: Node2D = $CharacterLayer
 		
-func create(map: MapData) -> void:
-	_render_cells(map)
-	_instantiate_features(map)
+func create(map_data: MapData) -> void:
+	_render_cells(map_data)
+	_instantiate_features(map_data)
 
 func _render_cells(map: MapData) -> void:
 	# Render by accessing the coordinates in the tilemap
@@ -45,8 +46,13 @@ func _render_cells(map: MapData) -> void:
 	for cell in map.cells.values():
 		cell_layer.set_cell(cell.grid_position, 0, MASK_TO_ATLAS[cell.get_exits()])
 
-func _instantiate_features(map: MapData) -> void:
-	for pos in map.features:
-		var node: CellFeature = FEATURE_SCENES[map.features[pos]].instantiate()
+func _instantiate_features(map_data: MapData) -> void:
+	for pos in map_data.features:
+		var node: CellFeature = FEATURE_SCENES[map_data.features[pos]].instantiate()
 		node.position = cell_layer.map_to_local(pos)
 		feature_layer.add_child(node)
+
+func _on_character_spawn(character: Character, map_data: MapData) -> void:
+	var pos = map_data.features.find_key(CellFeature.Type.FLOOR_ENTRANCE)
+	character.position = cell_layer.map_to_local(pos)
+	character_layer.add_child(character)
