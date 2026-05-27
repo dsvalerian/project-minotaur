@@ -1,4 +1,4 @@
-class_name TurnManager extends Control
+class_name TurnManager extends Node2D
 
 var characters: Array[Character]
 
@@ -6,23 +6,16 @@ func _ready():
 	Signals.turn_ended.connect(_on_end_turn)
 	Signals.character_spawned.connect(_on_character_spawn)
 	Signals.character_died.connect(_on_character_death)
-	render_menu()
-
-func render_menu() -> void:
-	for child in get_children():
-		child.queue_free()
-	for i in range(characters.size()):
-		add_child(characters[i].get_portrait())
+	Signals.turn_order_change.emit(characters)
 
 func _on_character_spawn(character: Character) -> void:
 	characters.push_back(character)
-	render_menu()
+	Signals.turn_order_change.emit(characters)
 
-func _on_end_turn(character: Character) -> void:
-	if (characters[0] == character):
-		var just_went: Character = characters.pop_front()
-		characters.push_back(just_went)
-	render_menu()
+func _on_end_turn() -> void:
+	var just_went: Character = characters.pop_front()
+	characters.push_back(just_went)
+	Signals.turn_order_change.emit(characters)
 
 func _on_character_death(character: Character) -> void:
 	if (characters[0] == character):

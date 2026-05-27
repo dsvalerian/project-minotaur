@@ -33,7 +33,8 @@ signal loaded_game
 signal turn_ended(character: Character)
 @warning_ignore("unused_signal")
 signal turn_started(character: Character)
-
+@warning_ignore("unused_signal")
+signal turn_order_change(characters: Array[Character])
  
  # Characters
 @warning_ignore("unused_signal")

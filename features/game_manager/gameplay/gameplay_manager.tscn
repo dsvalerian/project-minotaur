@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnul5yfjqtt6s" path="res://features/game_manager/gameplay/gameplay_manager.gd" id="1_5qggd"]
 [ext_resource type="Script" uid="uid://d3010wnr0b201" path="res://features/game_manager/gameplay/turn_manager.gd" id="2_5qggd"]
+[ext_resource type="Script" uid="uid://br88dclffh1n0" path="res://features/game_manager/gameplay/turn_order_display.gd" id="2_jru13"]
 [ext_resource type="PackedScene" uid="uid://bwj46fhu6psgo" path="res://features/map/map_manager.tscn" id="3_6vu0x"]
 
 [node name="GameplayManager" type="Node2D" unique_id=1738029408]
@@ -20,12 +21,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
-[node name="TurnManager" type="HBoxContainer" parent="HUD/TopBar" unique_id=1371912120]
+[node name="TurnOrderMargin" type="MarginContainer" parent="HUD/TopBar" unique_id=99541009]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/TopBar/TurnOrderMargin" unique_id=1371912120]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 alignment = 1
-script = ExtResource("2_5qggd")
+script = ExtResource("2_jru13")
 
 [node name="EndTurnButton" type="Button" parent="HUD/TopBar" unique_id=306543109]
 layout_mode = 2
@@ -62,4 +68,7 @@ size_flags_vertical = 4
 
 [node name="MapManager" parent="." unique_id=1580314556 instance=ExtResource("3_6vu0x")]
 
-[connection signal="pressed" from="HUD/TopBar/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[node name="TurnManager" type="Node2D" parent="." unique_id=1297103255]
+script = ExtResource("2_5qggd")
+
+[connection signal="pressed" from="HUD/TopBar/EndTurnButton" to="TurnManager" method="_on_end_turn"]

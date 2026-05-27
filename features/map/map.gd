@@ -49,10 +49,9 @@ func _render_cells(map: MapData) -> void:
 func _instantiate_features(map_data: MapData) -> void:
 	for pos in map_data.features:
 		var node: CellFeature = FEATURE_SCENES[map_data.features[pos]].instantiate()
-		node.position = cell_layer.map_to_local(pos)
+		node.position = cell_layer.map_to_local(pos) * cell_layer.scale
 		feature_layer.add_child(node)
 
 func _on_character_spawn(character: Character, map_data: MapData) -> void:
 	var pos = map_data.features.find_key(CellFeature.Type.FLOOR_ENTRANCE)
-	character.position = cell_layer.map_to_local(pos)
-	character_layer.add_child(character)
+	character.position = cell_layer.map_to_local(pos) * cell_layer.scale
