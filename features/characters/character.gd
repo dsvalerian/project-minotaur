@@ -3,7 +3,9 @@ class_name Character extends Node2D
 @export var title: String = "John Character"
 
 @export_group("Stats")
-@export var health: int
+@export var max_health: int = 10
+@export var initiative: int = 5
+@export var speed: int = 2
 
 func get_portrait() -> Container:
 	var texture = $CharacterSprite.texture

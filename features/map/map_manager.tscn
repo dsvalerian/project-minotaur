@@ -41,6 +41,8 @@ map_size = 100
 [node name="Map" type="Node2D" parent="." unique_id=706341325]
 script = ExtResource("2_430cx")
 
+[node name="MovementLayer" type="Node2D" parent="Map" unique_id=683782438]
+
 [node name="CellLayer" type="TileMapLayer" parent="Map" unique_id=1177148956]
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_n6fde")

@@ -21,14 +21,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
-[node name="TurnOrderMargin" type="MarginContainer" parent="HUD/TopBar" unique_id=99541009]
+[node name="TurnOrderPanel" type="PanelContainer" parent="HUD/TopBar" unique_id=1721265921]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/TopBar/TurnOrderMargin" unique_id=1371912120]
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/TopBar/TurnOrderPanel" unique_id=1371912120]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 size_flags_stretch_ratio = 8.0
 alignment = 1
 script = ExtResource("2_jru13")

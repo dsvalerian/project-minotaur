@@ -1,6 +1,7 @@
 class_name TurnManager extends Node2D
 
 var characters: Array[Character]
+var round_counter: int = 0
 
 func _ready():
 	Signals.turn_ended.connect(_on_end_turn)
