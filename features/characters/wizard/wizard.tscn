@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://2j1p4vn2jjmj"]
+
+[ext_resource type="PackedScene" uid="uid://ch14grfjr8vws" path="res://features/characters/character.tscn" id="1_o4v6f"]
+[ext_resource type="Texture2D" uid="uid://hlllws8pj6xq" path="res://features/characters/wizard/wizard_sprite.png" id="2_o4v6f"]
+
+[node name="Wizard" unique_id=885408517 instance=ExtResource("1_o4v6f")]
+
+[node name="CharacterSprite" parent="." index="0" unique_id=827467473]
+texture = ExtResource("2_o4v6f")

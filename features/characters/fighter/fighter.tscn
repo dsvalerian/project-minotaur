@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ceoj5rg1wwx1y"]
+
+[ext_resource type="PackedScene" uid="uid://ch14grfjr8vws" path="res://features/characters/character.tscn" id="1_441n3"]
+[ext_resource type="Texture2D" uid="uid://slv7t0ta1he1" path="res://features/characters/fighter/fighter_sprite.png" id="2_poxfe"]
+
+[node name="Fighter" unique_id=885408517 instance=ExtResource("1_441n3")]
+title = "Fighter"
+
+[node name="CharacterSprite" parent="." index="0" unique_id=827467473]
+texture = ExtResource("2_poxfe")

@@ -5,7 +5,7 @@ func _ready():
 	pass
 
 func _on_click_play():
-	get_tree().change_scene_to_file("res://features/map/map_manager.tscn")
+	get_tree().change_scene_to_file("res://features/game_manager/meta_progression/progression_screen.tscn")
 
 func _on_click_multiplayer():
 	get_tree().change_scene_to_file("res://features/lobby/ui/lobby_ui.tscn")
