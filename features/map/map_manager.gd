@@ -26,9 +26,9 @@ func _on_character_spawn(character: Character) -> void:
 func _reposition_characters_in_cell(coords: Vector2i) -> void:
 	var characters_at_coords = _character_coords.keys().filter(func(k): return _character_coords[k] == coords)
 	var size = characters_at_coords.size()
-	var local_coords = $Map.cell_layer.map_to_local(coords)
-	var _scale = $Map.cell_layer.scale
-	var cell_size = Vector2($Map.cell_layer.tile_set.tile_size) * _scale
+	var local_coords = map.cell_layer.map_to_local(coords)
+	var _scale = map.cell_layer.scale
+	var cell_size = Vector2(map.cell_layer.tile_set.tile_size) * _scale
 	if  size == 0:
 		return
 	elif size == 1:
