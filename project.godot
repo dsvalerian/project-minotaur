@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Signals="*uid://bclsk3bhr4ym7"
 NetworkManager="*uid://d2vxoxundw5tw"
 PeerManager="*uid://bgkr1kmlaqhc6"
+SignalLogger="*uid://dlijc5tyyyf7q"
 
 [display]
 
@@ -31,6 +32,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[gui]
+
+theme/custom="uid://jkp80cnnjag3"
 
 [physics]
 

@@ -16,6 +16,10 @@ script = ExtResource("2_430cx")
 [node name="CellLayer" type="TileMapLayer" parent="GameMap" unique_id=1177148956]
 tile_set = ExtResource("3_n6fde")
 
+[node name="MovementLayer" type="Node2D" parent="Map" unique_id=683782438]
+
 [node name="FeatureLayer" type="Node2D" parent="GameMap" unique_id=1406394723]
+
+[node name="CharacterLayer" type="Node2D" parent="Map" unique_id=2004111606]
 
 [node name="Camera" parent="." unique_id=438464646 instance=ExtResource("4_n6fde")]

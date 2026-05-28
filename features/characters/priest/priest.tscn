@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bw08y2se2ec5s"]
+
+[ext_resource type="PackedScene" uid="uid://ch14grfjr8vws" path="res://features/characters/character.tscn" id="1_ryji8"]
+[ext_resource type="Texture2D" uid="uid://jv4rijn5ctqj" path="res://features/characters/priest/priest_sprite.png" id="2_ryji8"]
+
+[node name="Priest" unique_id=885408517 instance=ExtResource("1_ryji8")]
+
+[node name="CharacterSprite" parent="." index="0" unique_id=827467473]
+texture = ExtResource("2_ryji8")
