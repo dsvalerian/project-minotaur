@@ -1,64 +1,49 @@
 class_name MapManager extends Node2D
 
 @export var map_seed: int
-@export var map_size: int
+@export var map_width: int = 80
+@export var map_height: int = 60
+@export var room_min_size: int = 3
+@export var room_max_size: int = 8
 
-@onready var map: GameMap = $GameMap
+@onready var map_scene: MapScene = $MapScene
 @onready var generator: MapGenerator = MapGenerator.new(map_seed)
 
-var _map_data: MapData
-var _character_coords: Dictionary[Character, Vector2i]
+var _map: Map
+var _character_positions: Dictionary[Character, Vector2i] = {}
 
 func _ready():
 	Signals.character_spawned.connect(_on_character_spawn)
+	Signals.character_died.connect(_on_character_died)
 	create_map()
-	
+
 func create_map():
-	_map_data = generator.generate(map_size)
-	map.create(_map_data)
+	_map = generator.generate(map_width, map_height, room_min_size, room_max_size)
+	map_scene.create(_map, map_seed)
 
 func _on_character_spawn(character: Character) -> void:
-	var coords = _map_data.features.find_key(CellFeature.Type.FLOOR_ENTRANCE)
-	_character_coords[character] = coords
-	# character.position = $Map.cell_layer.map_to_local(coords) * $Map.cell_layer.scale
-	_reposition_characters_in_cell(coords)
+	var entrance := _map.find_interactable(FloorEntrance)
+	var nearby_cells := _get_nearby_floor_cells(entrance, 4)
+	var coords := nearby_cells[_character_positions.size() % nearby_cells.size()]
+	_map.get_cell(coords).character = character
+	_character_positions[character] = coords
+	character.position = map_scene.floor_layer.map_to_local(coords) * map_scene.floor_layer.scale
 
-func _reposition_characters_in_cell(coords: Vector2i) -> void:
-	var characters_at_coords = _character_coords.keys().filter(func(k): return _character_coords[k] == coords)
-	var size = characters_at_coords.size()
-	var local_coords = map.cell_layer.map_to_local(coords)
-	var _scale = map.cell_layer.scale
-	var cell_size = Vector2(map.cell_layer.tile_set.tile_size) * _scale
-	if  size == 0:
+func _on_character_died(character: Character) -> void:
+	if not _character_positions.has(character):
 		return
-	elif size == 1:
-		characters_at_coords[0].position = local_coords * _scale
-	elif size == 2:
-		characters_at_coords[0].position = Vector2i(local_coords * _scale) - Vector2i(floor(0.25 * cell_size.x), 0)
-		characters_at_coords[1].position = Vector2i(local_coords * _scale) + Vector2i(floor(0.25 * cell_size.x), 0)
-	else:
-		var middle_of_cell = Vector2(local_coords * _scale)
-		var top_left_of_cell = middle_of_cell - Vector2(0.5 * cell_size.x, 0.5 * cell_size.y)
-		var offsets = make_array_of_offsets(size, cell_size)
-		for i in range(0, size):
-			var character = characters_at_coords[i]
-			character.position = top_left_of_cell + offsets[i]
+	var pos := _character_positions[character]
+	_map.get_cell(pos).character = null
+	_character_positions.erase(character)
 
-func make_array_of_offsets(num_items: int, cell_size: Vector2) -> Array[Vector2]:
-	var square_side_num_elements = _get_square_side_num_elements(num_items)
-	var offsets = []
-	for i in range(square_side_num_elements):
-		offsets.append(cell_size * (float(i + 1) / float(square_side_num_elements + 1)))
-	var ret: Array[Vector2] = []
-	ret.resize(square_side_num_elements * square_side_num_elements)
-	for i in range(square_side_num_elements):
-		for j in range(square_side_num_elements):
-			ret[i * square_side_num_elements + j] = Vector2(offsets[j].x, offsets[i].y)
-	return ret
-
-
-func _get_square_side_num_elements(total_num_elements: int):
-	for i in range(0, 10):
-		if i * i >= total_num_elements:
-			return i
-	return 10 # This realistically will never be this big so yolo
+func _get_nearby_floor_cells(origin: Vector2i, count: int) -> Array[Vector2i]:
+	var result: Array[Vector2i] = []
+	var offsets = [Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1),
+				   Vector2i(1,1), Vector2i(-1,1), Vector2i(1,-1), Vector2i(-1,-1)]
+	for offset in offsets:
+		if result.size() >= count:
+			break
+		var neighbor: Vector2i = origin + offset
+		if _map.is_floor(neighbor):
+			result.append(neighbor)
+	return result

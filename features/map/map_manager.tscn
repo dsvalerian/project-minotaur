@@ -1,26 +1,30 @@
 [gd_scene format=3 uid="uid://bwj46fhu6psgo"]
 
 [ext_resource type="Script" uid="uid://p1sg2h8fcf14" path="res://features/map/map_manager.gd" id="1_dgjgn"]
-[ext_resource type="TileSet" path="res://features/map/tile_sets/stone_dungeon_tile_set.tres" id="3_n6fde"]
+[ext_resource type="TileSet" uid="uid://dl5bxnpudpaed" path="res://features/map/tile_sets/dungeon_tileset.tres" id="2_dungeon"]
 [ext_resource type="PackedScene" uid="uid://2aj2ayk8gjbn" path="res://features/camera/camera.tscn" id="4_n6fde"]
-[ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/game_map.gd" id="5_gamemap"]
+[ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map_scene.gd" id="5_gamemap"]
 
 [node name="MapManager" type="Node2D" unique_id=1580314556]
 script = ExtResource("1_dgjgn")
-map_seed = 42
-map_size = 100
+map_seed = 420
+map_width = 30
+map_height = 30
+room_max_size = 5
 
-[node name="GameMap" type="Node2D" parent="." unique_id=706341325]
+[node name="MapScene" type="Node2D" parent="." unique_id=706341325]
 script = ExtResource("5_gamemap")
 
-[node name="MovementLayer" type="Node2D" parent="GameMap" unique_id=683782438]
+[node name="MovementLayer" type="Node2D" parent="MapScene" unique_id=683782438]
 
-[node name="CellLayer" type="TileMapLayer" parent="GameMap" unique_id=1177148956]
-scale = Vector2(4, 4)
-tile_set = ExtResource("3_n6fde")
+[node name="FloorLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148956]
+tile_set = ExtResource("2_dungeon")
 
-[node name="FeatureLayer" type="Node2D" parent="GameMap" unique_id=1406394723]
+[node name="WallLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148999]
+tile_set = ExtResource("2_dungeon")
 
-[node name="CharacterLayer" type="Node2D" parent="GameMap" unique_id=2004111606]
+[node name="FeatureLayer" type="Node2D" parent="MapScene" unique_id=1406394723]
+
+[node name="CharacterLayer" type="Node2D" parent="MapScene" unique_id=2004111606]
 
 [node name="Camera" parent="." unique_id=438464646 instance=ExtResource("4_n6fde")]
