@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://d3cnuay8g81bu"]
-
-[node name="DungeonTilemap" type="TileMap" unique_id=1230405576]
-format = 2
