@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://4mouxcxil6ln"]
-
-[ext_resource type="Script" uid="uid://mp08rtptp162" path="res://features/game_manager/game_manager.gd" id="1_aawq8"]
-[ext_resource type="PackedScene" uid="uid://cigjoamnunrg3" path="res://features/game_manager/gameplay/gameplay_manager.tscn" id="2_3dl8e"]
-
-[node name="GameManager" type="Node2D" unique_id=703309745]
-script = ExtResource("1_aawq8")
-
-[node name="GameplayManager" parent="." unique_id=1738029408 instance=ExtResource("2_3dl8e")]

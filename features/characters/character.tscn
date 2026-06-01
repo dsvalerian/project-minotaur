@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://ch14grfjr8vws"]
 
 [ext_resource type="Script" uid="uid://s1sbha4sdb7r" path="res://features/characters/character.gd" id="1_pmi4q"]
+[ext_resource type="Resource" uid="uid://cpamsyse5613b" path="res://features/characters/fighter/fighter.tres" id="2_4f6rn"]
 
 [node name="Character" type="Node2D" unique_id=885408517]
 script = ExtResource("1_pmi4q")
+character_name = "John Character"
+character_class = ExtResource("2_4f6rn")
 
 [node name="CharacterSprite" type="Sprite2D" parent="." unique_id=827467473]

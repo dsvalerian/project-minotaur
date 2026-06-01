@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://hco2j2xq42o2"]
+
+[ext_resource type="Script" uid="uid://b8i2cs8ocxryl" path="res://features/characters/stats.gd" id="1_3re7q"]
+[ext_resource type="Script" uid="uid://chnqdybds2ybl" path="res://features/characters/character_class.gd" id="1_k0q8l"]
+[ext_resource type="Texture2D" uid="uid://jv4rijn5ctqj" path="res://features/characters/priest/priest_sprite.png" id="1_plb0f"]
+
+[sub_resource type="Resource" id="Resource_kv3ha"]
+script = ExtResource("1_3re7q")
+metadata/_custom_type_script = "uid://b8i2cs8ocxryl"
+
+[resource]
+script = ExtResource("1_k0q8l")
+character_class_name = "Priest"
+icon = ExtResource("1_plb0f")
+base_stats = SubResource("Resource_kv3ha")
+metadata/_custom_type_script = "uid://chnqdybds2ybl"

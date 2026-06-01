@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://byxhlu063mcd2"]
-
-[ext_resource type="PackedScene" uid="uid://ch14grfjr8vws" path="res://features/characters/character.tscn" id="1_rqkf2"]
-[ext_resource type="Texture2D" uid="uid://ct4qfaj2psrx5" path="res://features/characters/rogue/rogue_sprite.png" id="2_rqkf2"]
-
-[node name="Rogue" unique_id=885408517 instance=ExtResource("1_rqkf2")]
-
-[node name="CharacterSprite" parent="." index="0" unique_id=827467473]
-texture = ExtResource("2_rqkf2")
