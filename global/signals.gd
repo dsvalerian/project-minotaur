@@ -26,6 +26,10 @@ signal connection_failed
 @warning_ignore("unused_signal")
 signal player_registry_updated
 
+# Menus
+@warning_ignore("unused_signal")
+signal party_selected(classes: Array[CharacterClass])
+
 # Gameplay
 @warning_ignore("unused_signal")
 signal loaded_game

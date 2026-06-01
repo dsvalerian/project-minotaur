@@ -63,6 +63,9 @@ func _handle_click_on_select_slot(idx: int):
 		to_select_idx = idx
 		to_select[to_select_idx].is_being_selected = true
 
+func _handle_continue_button_pressed() -> void:
+	Signals.party_selected.emit(selected_classes)
+
 func get_next_slot() -> int:
 	for i in range(selected_classes.size()):
 		if !selected_classes[i]:
