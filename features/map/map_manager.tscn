@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bwj46fhu6psgo"]
 
 [ext_resource type="Script" uid="uid://p1sg2h8fcf14" path="res://features/map/map_manager.gd" id="1_dgjgn"]
-[ext_resource type="TileSet" uid="uid://dl5bxnpudpaed" path="res://features/map/tile_sets/dungeon_tileset.tres" id="2_dungeon"]
+[ext_resource type="Resource" uid="uid://dn646dk2f04hv" path="res://features/map/themes/dungeon/dungeon_theme.tres" id="2_d45ak"]
+[ext_resource type="TileSet" uid="uid://dl5bxnpudpaed" path="res://features/map/themes/dungeon/dungeon_tileset.tres" id="2_dungeon"]
 [ext_resource type="PackedScene" uid="uid://2aj2ayk8gjbn" path="res://features/camera/camera.tscn" id="4_n6fde"]
 [ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map_scene.gd" id="5_gamemap"]
 
@@ -11,9 +12,20 @@ map_seed = 420
 map_width = 30
 map_height = 30
 room_max_size = 5
+theme = ExtResource("2_d45ak")
 
 [node name="MapScene" type="Node2D" parent="." unique_id=706341325]
 script = ExtResource("5_gamemap")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="MapScene" unique_id=312847561]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="MapScene/BackgroundLayer" unique_id=312847562]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="MapScene" unique_id=312847563]
 
 [node name="MovementLayer" type="Node2D" parent="MapScene" unique_id=683782438]
 

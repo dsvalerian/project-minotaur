@@ -5,6 +5,7 @@ class_name MapManager extends Node2D
 @export var map_height: int = 60
 @export var room_min_size: int = 3
 @export var room_max_size: int = 8
+@export var theme: MapTheme
 
 @onready var map_scene: MapScene = $MapScene
 @onready var generator: MapGenerator = MapGenerator.new(map_seed)
@@ -19,7 +20,7 @@ func _ready():
 
 func create_map():
 	_map = generator.generate(map_width, map_height, room_min_size, room_max_size)
-	map_scene.create(_map, map_seed)
+	map_scene.create(_map, map_seed, theme)
 
 func _on_character_spawn(character: Character) -> void:
 	var entrance := _map.find_interactable(FloorEntrance)

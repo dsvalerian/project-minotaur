@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuyjhu06dxai3"
-path="res://.godot/imported/dungeon_atlas.png-f539dd996f3efa405f5cd049c8cd388a.ctex"
+path="res://.godot/imported/dungeon_atlas.png-f20ece36c431ba979be61f0d184122c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/map/tile_sets/dungeon_atlas.png"
-dest_files=["res://.godot/imported/dungeon_atlas.png-f539dd996f3efa405f5cd049c8cd388a.ctex"]
+source_file="res://features/map/themes/dungeon/dungeon_atlas.png"
+dest_files=["res://.godot/imported/dungeon_atlas.png-f20ece36c431ba979be61f0d184122c2.ctex"]
 
 [params]
 

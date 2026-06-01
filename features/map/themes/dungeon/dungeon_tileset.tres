@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" format=3 uid="uid://dl5bxnpudpaed"]
 
-[ext_resource type="Texture2D" uid="uid://cuyjhu06dxai3" path="res://features/map/tile_sets/dungeon_atlas.png" id="1_2dwai"]
+[ext_resource type="Texture2D" uid="uid://cuyjhu06dxai3" path="res://features/map/themes/dungeon/dungeon_atlas.png" id="1_4pfmk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dwai"]
-texture = ExtResource("1_2dwai")
+texture = ExtResource("1_4pfmk")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

@@ -9,6 +9,8 @@ const DIR_NW = Vector2i(-1, -1)
 const DIR_SE = Vector2i(1,  1)
 const DIR_SW = Vector2i(-1,  1)
 
+@onready var background: ColorRect = $BackgroundLayer/Background
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
 @onready var floor_layer: TileMapLayer = $FloorLayer
 @onready var wall_layer:  TileMapLayer = $WallLayer
 @onready var feature_layer: Node2D = $FeatureLayer
@@ -16,9 +18,13 @@ const DIR_SW = Vector2i(-1,  1)
 
 var rng
 
-func create(map: Map, seed: int) -> void:
+func create(map: Map, seed: int, theme: MapTheme) -> void:
 	rng = RandomNumberGenerator.new()
 	rng.seed = seed
+	floor_layer.tile_set = theme.tileset
+	wall_layer.tile_set = theme.tileset
+	background.color = theme.background_color
+	canvas_modulate.color = theme.ambient_color
 	_render_floor(map)
 	_render_walls(map)
 	_add_interactables_to_tree(map)
