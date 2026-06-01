@@ -35,7 +35,7 @@ tile_set = ExtResource("2_dungeon")
 [node name="WallLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148999]
 tile_set = ExtResource("2_dungeon")
 
-[node name="FeatureLayer" type="Node2D" parent="MapScene" unique_id=1406394723]
+[node name="EntityLayer" type="Node2D" parent="MapScene" unique_id=1406394723]
 
 [node name="CharacterLayer" type="Node2D" parent="MapScene" unique_id=2004111606]
 

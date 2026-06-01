@@ -13,7 +13,7 @@ const DIR_SW = Vector2i(-1,  1)
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
 @onready var floor_layer: TileMapLayer = $FloorLayer
 @onready var wall_layer:  TileMapLayer = $WallLayer
-@onready var feature_layer: Node2D = $FeatureLayer
+@onready var entity_layer: Node2D = $EntityLayer
 @onready var character_layer: Node2D = $CharacterLayer
 
 var rng
@@ -118,4 +118,4 @@ func _add_interactables_to_tree(map: Map) -> void:
 		if cell.interactable == null:
 			continue
 		cell.interactable.position = floor_layer.map_to_local(pos) * floor_layer.scale
-		feature_layer.add_child(cell.interactable)
+		entity_layer.add_child(cell.interactable)
