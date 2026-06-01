@@ -1,4 +1,4 @@
-class_name Character extends Node2D 
+class_name Character extends Interactable
 
 @export var title: String = "John Character"
 
