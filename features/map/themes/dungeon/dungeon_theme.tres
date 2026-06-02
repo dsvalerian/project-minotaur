@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="MapTheme" format=3 uid="uid://dn646dk2f04hv"]
+[gd_resource type="Resource" script_class="MapTheme" format=3 uid="uid://p7721p74ll2n"]
 
-[ext_resource type="Script" uid="uid://c33auois6twg6" path="res://features/map/themes/map_theme.gd" id="1_3egq1"]
-[ext_resource type="TileSet" uid="uid://dl5bxnpudpaed" path="res://features/map/themes/dungeon/dungeon_tileset.tres" id="2_3q6r0"]
+[ext_resource type="Script" uid="uid://c33auois6twg6" path="res://features/map/themes/map_theme.gd" id="1_ts5rq"]
+[ext_resource type="TileSet" uid="uid://c5folareogepc" path="res://features/map/themes/dungeon/dungeon_tileset.tres" id="2_atedi"]
 
 [resource]
-script = ExtResource("1_3egq1")
-tileset = ExtResource("2_3q6r0")
-background_color = Color(0.05490196, 0.043137256, 0.13333334, 1)
+script = ExtResource("1_ts5rq")
+tileset = ExtResource("2_atedi")
+background_color = Color(0.077841304, 0.059967473, 0, 1)
 metadata/_custom_type_script = "uid://c33auois6twg6"
