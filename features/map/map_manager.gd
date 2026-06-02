@@ -1,10 +1,11 @@
 class_name MapManager extends Node2D
 
 @export var map_seed: int
-@export var map_width: int = 80
-@export var map_height: int = 60
-@export var room_min_size: int = 3
-@export var room_max_size: int = 8
+@export var min_room_width: int = 4
+@export var min_room_height: int = 4
+@export var max_room_width: int = 10
+@export var max_room_height: int = 10
+@export var num_rooms: int = 15
 @export var theme: MapTheme
 
 @onready var map_scene: MapScene = $MapScene
@@ -19,7 +20,7 @@ func _ready():
 	create_map()
 
 func create_map():
-	_map = generator.generate(map_width, map_height, room_min_size, room_max_size)
+	_map = generator.generate(min_room_width, min_room_height, max_room_width, max_room_height, num_rooms)
 	map_scene.create(_map, map_seed, theme)
 
 func _on_character_spawn(character: Character) -> void:
