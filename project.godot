@@ -21,6 +21,8 @@ Signals="*uid://bclsk3bhr4ym7"
 NetworkManager="*uid://d2vxoxundw5tw"
 PeerManager="*uid://bgkr1kmlaqhc6"
 SignalLogger="*uid://dlijc5tyyyf7q"
+DataStore="*uid://bme2w11xsbg63"
+SceneStack="*uid://ds4gx3074n5xv"
 
 [display]
 
@@ -37,9 +39,11 @@ enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
 folder_colors={
 "res://features/characters/": "blue",
+"res://features/entities/": "pink",
 "res://features/game_manager/": "red",
 "res://features/lobby/": "yellow",
-"res://features/map/": "green"
+"res://features/map/": "purple",
+"res://features/menu/": "green"
 }
 
 [gui]

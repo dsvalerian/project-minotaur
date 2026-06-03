@@ -28,7 +28,7 @@ signal player_registry_updated
 
 # Menus
 @warning_ignore("unused_signal")
-signal party_selected(classes: Array[CharacterClass])
+signal party_selected(classes: Party)
 
 # Gameplay
 @warning_ignore("unused_signal")

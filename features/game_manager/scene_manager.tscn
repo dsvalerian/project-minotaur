@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d38br5s2us7lh"]
 
 [ext_resource type="Script" uid="uid://ch5mmug4w3mhm" path="res://features/game_manager/scene_manager.gd" id="1_eh8i8"]
-[ext_resource type="PackedScene" uid="uid://dtkd6251md5r7" path="res://features/game_manager/party_selection_screen.tscn" id="2_eh8i8"]
+[ext_resource type="PackedScene" uid="uid://dtkd6251md5r7" path="res://features/menu/party_selection_screen.tscn" id="2_eh8i8"]
 
 [node name="SceneManager" type="Control" unique_id=2111618438]
 layout_mode = 3
@@ -43,61 +43,6 @@ text = "Upgrade"
 layout_mode = 2
 text = "Embark
 "
-
-[node name="ChapterSelectScreen" type="Control" parent="." unique_id=1481525373]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ChapterSelectScreen" unique_id=1660765405]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="ChapterSelectScreen/VBoxContainer" unique_id=855374197]
-layout_mode = 2
-text = "Chapters"
-horizontal_alignment = 1
-
-[node name="Chapter1Button" type="Button" parent="ChapterSelectScreen/VBoxContainer" unique_id=325413262]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Chapter 1"
-
-[node name="Chapter2Button" type="Button" parent="ChapterSelectScreen/VBoxContainer" unique_id=462675330]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Chapter 2
-"
-
-[node name="Chapter3Button" type="Button" parent="ChapterSelectScreen/VBoxContainer" unique_id=1966367644]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Chapter 3"
-
-[node name="Chapter4Button" type="Button" parent="ChapterSelectScreen/VBoxContainer" unique_id=186558393]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Chapter 4"
-
-[node name="Chapter5Button" type="Button" parent="ChapterSelectScreen/VBoxContainer" unique_id=870659284]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Chapter 5"
 
 [node name="PartySelectionScreen" parent="." unique_id=304619354 instance=ExtResource("2_eh8i8")]
 unique_name_in_owner = true
