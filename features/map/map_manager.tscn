@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dl5bxnpudpaed" path="res://features/map/themes/dungeon/dungeon_tileset.tres" id="2_dungeon"]
 [ext_resource type="PackedScene" uid="uid://2aj2ayk8gjbn" path="res://features/camera/camera.tscn" id="4_n6fde"]
 [ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map_scene.gd" id="5_gamemap"]
+[ext_resource type="Script" uid="uid://ddxb2v614kae7" path="res://features/map/movement_layer.gd" id="5_gsppx"]
 
 [node name="MapManager" type="Node2D" unique_id=1580314556]
 script = ExtResource("1_dgjgn")
@@ -24,10 +25,10 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="MapScene" unique_id=312847563]
-
-[node name="MovementLayer" type="Node2D" parent="MapScene" unique_id=683782438]
 
 [node name="FloorLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148956]
 tile_set = ExtResource("2_dungeon")
@@ -36,6 +37,9 @@ tile_set = ExtResource("2_dungeon")
 tile_set = ExtResource("2_dungeon")
 
 [node name="EntityLayer" type="Node2D" parent="MapScene" unique_id=1406394723]
+
+[node name="MovementLayer" type="Node2D" parent="MapScene" unique_id=2106943417]
+script = ExtResource("5_gsppx")
 
 [node name="CharacterLayer" type="Node2D" parent="MapScene" unique_id=2004111606]
 

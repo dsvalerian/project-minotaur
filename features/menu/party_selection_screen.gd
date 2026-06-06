@@ -17,15 +17,8 @@ const NUM_PLAYERS = 4
 const class_option_slot_scene = preload("res://features/menu/class_option_slot.tscn")
 const selected_class_slot_scene = preload("res://features/menu/class_select_slot.tscn")
 
-@onready var class_resources: Array[CharacterClass] = [
-	preload("res://features/characters/fighter/fighter.tres"),
-	preload("res://features/characters/priest/priest.tres"),
-	preload("res://features/characters/rogue/rogue.tres"),
-	preload("res://features/characters/wizard/wizard.tres"),
-]
-
 func _ready() -> void:
-	for character_class in class_resources:
+	for character_class in GlobalResources.classes.values():
 		var slot = class_option_slot_scene.instantiate()
 		slot.character_class = character_class
 		class_options.add_child(slot)

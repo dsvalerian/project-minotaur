@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chnqdybds2ybl" path="res://features/characters/character_class.gd" id="1_w8jkg"]
 [ext_resource type="Script" uid="uid://b8i2cs8ocxryl" path="res://features/characters/stats.gd" id="1_yie7b"]
+[ext_resource type="Texture2D" uid="uid://slv7t0ta1he1" path="res://features/characters/fighter/fighter_sprite.png" id="2_yie7b"]
 
 [sub_resource type="Resource" id="Resource_bbxl3"]
 script = ExtResource("1_yie7b")
@@ -9,5 +10,7 @@ metadata/_custom_type_script = "uid://b8i2cs8ocxryl"
 
 [resource]
 script = ExtResource("1_w8jkg")
+character_class_name = "Fighter"
+icon = ExtResource("2_yie7b")
 base_stats = SubResource("Resource_bbxl3")
 metadata/_custom_type_script = "uid://chnqdybds2ybl"

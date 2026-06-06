@@ -15,12 +15,13 @@ const DIR_SW = Vector2i(-1,  1)
 @onready var wall_layer:  TileMapLayer = $WallLayer
 @onready var entity_layer: Node2D = $EntityLayer
 @onready var character_layer: Node2D = $CharacterLayer
+@onready var movement_layer: Node2D = $MovementLayer
 
 var rng
 
-func create(map: Map, seed: int, theme: MapTheme) -> void:
+func create(map: Map, rng_seed: int, theme: MapTheme) -> void:
 	rng = RandomNumberGenerator.new()
-	rng.seed = seed
+	rng.seed = rng_seed
 	floor_layer.tile_set = theme.tileset
 	wall_layer.tile_set = theme.tileset
 	background.color = theme.background_color

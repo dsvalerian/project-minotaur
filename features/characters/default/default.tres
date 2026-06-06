@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://bbfjj63rsq663"]
+
+[ext_resource type="Script" uid="uid://chnqdybds2ybl" path="res://features/characters/character_class.gd" id="1_ei2hr"]
+[ext_resource type="Script" uid="uid://b8i2cs8ocxryl" path="res://features/characters/stats.gd" id="1_eqhbj"]
+[ext_resource type="Texture2D" uid="uid://slv7t0ta1he1" path="res://features/characters/fighter/fighter_sprite.png" id="2_u0jcu"]
+
+[sub_resource type="Resource" id="Resource_uwi84"]
+script = ExtResource("1_eqhbj")
+metadata/_custom_type_script = "uid://b8i2cs8ocxryl"
+
+[resource]
+script = ExtResource("1_ei2hr")
+character_class_name = "Default"
+icon = ExtResource("2_u0jcu")
+base_stats = SubResource("Resource_uwi84")
+metadata/_custom_type_script = "uid://chnqdybds2ybl"

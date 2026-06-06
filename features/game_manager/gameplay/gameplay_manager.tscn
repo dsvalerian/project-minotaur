@@ -10,58 +10,79 @@ script = ExtResource("1_5qggd")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1475686053]
 
-[node name="TopBar" type="HBoxContainer" parent="HUD" unique_id=632528682]
+[node name="HudRoot" type="Control" parent="HUD" unique_id=1255668714]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_behavior_recursive = 2
+
+[node name="TopBar" type="HBoxContainer" parent="HUD/HudRoot" unique_id=632528682]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = 140.0
 offset_bottom = 128.0
 grow_horizontal = 2
 
-[node name="Settings" type="Button" parent="HUD/TopBar" unique_id=974243571]
+[node name="Settings" type="Button" parent="HUD/HudRoot/TopBar" unique_id=974243571]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
-[node name="TurnOrderPanel" type="PanelContainer" parent="HUD/TopBar" unique_id=1721265921]
+[node name="TurnOrderPanel" type="PanelContainer" parent="HUD/HudRoot/TopBar" unique_id=1721265921]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/TopBar/TurnOrderPanel" unique_id=1371912120]
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="HUD/HudRoot/TopBar/TurnOrderPanel" unique_id=1371912120]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 8.0
 alignment = 1
 script = ExtResource("2_jru13")
 
-[node name="EndTurnButton" type="Button" parent="HUD/TopBar" unique_id=306543109]
+[node name="EndTurnButton" type="Button" parent="HUD/HudRoot/TopBar" unique_id=306543109]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "End Turn"
 
-[node name="BottomBar" type="HBoxContainer" parent="HUD" unique_id=1530994835]
+[node name="BottomBar" type="HBoxContainer" parent="HUD/HudRoot" unique_id=1530994835]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -248.0
+offset_top = 792.0
+offset_right = 12.0
+offset_bottom = 1040.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="InventoryMargin" type="MarginContainer" parent="HUD/BottomBar" unique_id=317160621]
+[node name="InventoryMargin" type="MarginContainer" parent="HUD/HudRoot/BottomBar" unique_id=317160621]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="AbilityMargin" type="MarginContainer" parent="HUD/BottomBar" unique_id=1905871386]
+[node name="AbilityMargin" type="MarginContainer" parent="HUD/HudRoot/BottomBar" unique_id=1905871386]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PartyStatsBar" type="VBoxContainer" parent="HUD" unique_id=1403916738]
+[node name="PartyStatsBar" type="VBoxContainer" parent="HUD/HudRoot" unique_id=1403916738]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = 1880.0
+offset_top = 520.0
+offset_right = 1880.0
+offset_bottom = 520.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_vertical = 4
@@ -72,4 +93,4 @@ map_seed = 100
 [node name="TurnManager" type="Node2D" parent="." unique_id=1297103255]
 script = ExtResource("2_5qggd")
 
-[connection signal="pressed" from="HUD/TopBar/EndTurnButton" to="TurnManager" method="_on_end_turn"]
+[connection signal="pressed" from="HUD/HudRoot/TopBar/EndTurnButton" to="TurnManager" method="_on_end_turn"]

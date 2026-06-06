@@ -34,11 +34,15 @@ signal party_selected(classes: Party)
 @warning_ignore("unused_signal")
 signal loaded_game
 @warning_ignore("unused_signal")
+signal on_game_start
+@warning_ignore("unused_signal")
 signal turn_ended(character: Character)
 @warning_ignore("unused_signal")
 signal turn_started(character: Character)
 @warning_ignore("unused_signal")
 signal turn_order_change(characters: Array[Character])
+@warning_ignore("unused_signal")
+signal character_move(character: Character, start: Vector2i, end: Vector2i)
  
  # Characters
 @warning_ignore("unused_signal")
