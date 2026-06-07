@@ -38,8 +38,7 @@ func _physics_process(_delta: float) -> void:
 	var tile_pos: Vector2i = map_manager.map_scene.floor_layer.local_to_map(mouse_pos)
 	if (map_manager.character_can_move_to(current_player, tile_pos)):
 		var player_pos: Vector2i = map_manager.get_character_pos(current_player)
-		var path: Array[Vector2i] = map_manager.get_path_tiles(player_pos, tile_pos)
-		map_manager.render_path(path)
+		map_manager.render_path(player_pos, tile_pos)
 
 func _input(event: InputEvent) -> void:
 	if (!event.is_action_pressed("move")):
@@ -48,6 +47,4 @@ func _input(event: InputEvent) -> void:
 	var tile_pos: Vector2i = map_manager.map_scene.floor_layer.local_to_map(mouse_pos)
 	if (map_manager.character_can_move_to(current_player, tile_pos)):
 		var player_pos: Vector2i = map_manager.get_character_pos(current_player)
-		var path: Array[Vector2i] = map_manager.get_path_tiles(player_pos, tile_pos)
-		map_manager.render_path(path)
 		Signals.character_move.emit(current_player, player_pos, tile_pos)

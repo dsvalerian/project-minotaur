@@ -89,6 +89,7 @@ size_flags_vertical = 4
 
 [node name="MapManager" parent="." unique_id=1580314556 instance=ExtResource("3_6vu0x")]
 map_seed = 100
+room_min_size = null
 
 [node name="TurnManager" type="Node2D" parent="." unique_id=1297103255]
 script = ExtResource("2_5qggd")

@@ -8,50 +8,35 @@ class_name MapManager extends Node2D
 @export var theme: MapTheme
 
 @onready var map_scene: MapScene = $MapScene
+@onready var pathing_manager: PathingManager = $PathingManager
 @onready var generator: MapGenerator = MapGenerator.new(map_seed)
 
 var _map: Map
 var _character_positions: Dictionary[Character, Vector2i] = {}
-var _pathfinder: AStarGrid2D = AStarGrid2D.new()
 
 func _ready():
 	Signals.character_spawned.connect(_on_character_spawn)
 	Signals.character_died.connect(_on_character_died)
 	Signals.character_move.connect(_on_character_move)
 
-func update_pathing() -> void:
-	var map_region: Rect2i = map_scene.floor_layer.get_used_rect()
-	_pathfinder.region = Rect2i(map_region.position.x - 1, map_region.position.y -
-	1, map_region.size.x + 2, map_region.size.y + 2)
-	_pathfinder.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
-	_pathfinder.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
-	_pathfinder.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
-	_pathfinder.update()
-	for wall_coords: Vector2i in map_scene.wall_layer.get_used_cells():
-		_pathfinder.set_point_solid(wall_coords, true)
-
-func get_path_tiles(start: Vector2i, end: Vector2i) -> Array[Vector2i]:
-	if (!_pathfinder.is_in_bounds(end.x, end.y) || _pathfinder.is_point_solid(end)):
-		return []
-	else:
-		return _pathfinder.get_id_path(start, end)
-
-func render_path(path: Array[Vector2i]) -> void:
-	var movement_layer: Node2D = map_scene.movement_layer
-	for child in movement_layer.get_children():
-		child.queue_free()
+func render_path(player_pos: Vector2i, target_pos: Vector2i) -> void:
+	var path: Array[Vector2i] = pathing_manager.get_path_tiles(player_pos, target_pos)
 	var global_path: Array[Vector2i] = []
 	for coords: Vector2i in path:
 		global_path.push_back(get_global_coords_from_map_coords(coords) - Vector2i(8, 8))
-	movement_layer.path = global_path
+	pathing_manager.path = global_path
 
 func get_global_coords_from_map_coords(coords: Vector2i) -> Vector2i:
 	return map_scene.floor_layer.map_to_local(coords) * map_scene.floor_layer.scale
 
 func create_map():
+	var floor_info = FloorInfo.new()
+	floor_info.floor_width = map_width
+	floor_info.floor_height = map_height
+	floor_info.map_theme = theme
 	_map = generator.generate(map_width, map_height, room_min_size, room_max_size)
 	map_scene.create(_map, map_seed, theme)
-	update_pathing()
+	Signals.map_generated.emit(_map, floor_info)
 
 func _on_character_spawn(character: Character) -> void:
 	var entrance := _map.find_interactable(FloorEntrance)

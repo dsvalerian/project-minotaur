@@ -42,10 +42,12 @@ signal turn_started(character: Character)
 @warning_ignore("unused_signal")
 signal turn_order_change(characters: Array[Character])
 @warning_ignore("unused_signal")
-signal character_move(character: Character, start: Vector2i, end: Vector2i)
- 
+signal map_generated(map: Map, floor_info: FloorInfo)
+
  # Characters
 @warning_ignore("unused_signal")
 signal character_spawned(character: Character)
 @warning_ignore("unused_signal")
 signal character_died(character: Character)
+@warning_ignore("unused_signal")
+signal character_move(character: Character, start: Vector2i, end: Vector2i)
