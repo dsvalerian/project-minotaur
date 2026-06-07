@@ -17,6 +17,7 @@ func _ready() -> void:
 func _on_map_generation(new_map: Map, new_floor_info: FloorInfo):
 	map = new_map
 	floor_info = new_floor_info
+	tile_size = floor_info.map_theme.tileset.tile_size
 	update()
 
 func update() -> void:
