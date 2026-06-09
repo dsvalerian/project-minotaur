@@ -21,7 +21,7 @@ func _on_map_generation(new_map: Map, new_floor_info: FloorInfo):
 	update()
 
 func update() -> void:
-	_pathfinder.region = Rect2i(-1, -1, floor_info.floor_width + 1, floor_info.floor_height + 1)
+	_pathfinder.region = map.bounds
 	_pathfinder.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	_pathfinder.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	_pathfinder.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN

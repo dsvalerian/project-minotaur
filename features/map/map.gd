@@ -10,6 +10,10 @@ func is_floor(pos: Vector2i) -> bool:
 	var cell: Cell = cells.get(pos, null)
 	return cell != null and cell.terrain == Cell.Terrain.FLOOR
 
+func is_wall(pos: Vector2i) -> bool:
+	var cell: Cell = cells.get(pos, null)
+	return cell != null and cell.terrain == Cell.Terrain.WALL
+
 func get_floor_positions() -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
 	for pos in cells:

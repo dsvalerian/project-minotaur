@@ -13,12 +13,9 @@ var current_player: Character
 
 func _ready() -> void:
 	party = DataStore.party
-	var map_size: Vector2i = scaling_manager.get_floor_size(current_floor)
+	var floor_info: FloorInfo = scaling_manager.get_floor_info(current_floor)
 	Signals.turn_order_change.connect(_on_turn_order_change)
-	map_manager.map_width = map_size.x
-	map_manager.map_height = map_size.y
-	map_manager.map_seed = map_seed
-	map_manager.create_map()
+	map_manager.create_map(floor_info)
 	spawn_characters()
 
 func spawn_characters() -> void:

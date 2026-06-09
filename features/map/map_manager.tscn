@@ -1,18 +1,76 @@
 [gd_scene format=3 uid="uid://bwj46fhu6psgo"]
 
 [ext_resource type="Script" uid="uid://p1sg2h8fcf14" path="res://features/map/map_manager.gd" id="1_dgjgn"]
-[ext_resource type="Resource" uid="uid://dn646dk2f04hv" path="res://features/map/themes/dungeon/dungeon_theme.tres" id="2_d45ak"]
-[ext_resource type="TileSet" uid="uid://dl5bxnpudpaed" path="res://features/map/themes/dungeon/dungeon_tileset.tres" id="2_dungeon"]
+[ext_resource type="Resource" uid="uid://p7721p74ll2n" path="res://features/map/themes/dungeon/dungeon_theme.tres" id="2_d45ak"]
 [ext_resource type="PackedScene" uid="uid://2aj2ayk8gjbn" path="res://features/camera/camera.tscn" id="4_n6fde"]
 [ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map_scene.gd" id="5_gamemap"]
 [ext_resource type="Script" uid="uid://ddxb2v614kae7" path="res://features/map/pathing_manager.gd" id="5_gsppx"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n6fde"]
+load_path = "res://.godot/imported/dungeon_atlas.png-f20ece36c431ba979be61f0d184122c2.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dwai"]
+texture = SubResource("CompressedTexture2D_n6fde")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d45ak"]
+sources/0 = SubResource("TileSetAtlasSource_2dwai")
+
 [node name="MapManager" type="Node2D" unique_id=1580314556]
 script = ExtResource("1_dgjgn")
-map_seed = 420
-map_width = 30
-map_height = 30
-room_max_size = 5
+map_seed = 1000
+min_room_width = 8
+min_room_height = null
+max_room_width = 12
+max_room_height = 6
+num_rooms = 10
 theme = ExtResource("2_d45ak")
 
 [node name="MapScene" type="Node2D" parent="." unique_id=706341325]
@@ -31,10 +89,10 @@ grow_vertical = 2
 [node name="CanvasModulate" type="CanvasModulate" parent="MapScene" unique_id=312847563]
 
 [node name="FloorLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148956]
-tile_set = ExtResource("2_dungeon")
+tile_set = SubResource("TileSet_d45ak")
 
 [node name="WallLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148999]
-tile_set = ExtResource("2_dungeon")
+tile_set = SubResource("TileSet_d45ak")
 
 [node name="EntityLayer" type="Node2D" parent="MapScene" unique_id=1406394723]
 
