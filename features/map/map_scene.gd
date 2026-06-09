@@ -11,7 +11,6 @@ const DIR_W = Vector2i(-1,  0)
 @onready var wall_layer:  TileMapLayer = $WallLayer
 @onready var entity_layer: Node2D = $EntityLayer
 @onready var character_layer: Node2D = $CharacterLayer
-@onready var movement_layer: Node2D = $MovementLayer
 
 var rng
 

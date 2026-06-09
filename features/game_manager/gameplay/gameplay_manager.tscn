@@ -25,7 +25,6 @@ mouse_behavior_recursive = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = 140.0
 offset_bottom = 128.0
 grow_horizontal = 2
 
@@ -89,7 +88,11 @@ size_flags_vertical = 4
 
 [node name="MapManager" parent="." unique_id=1580314556 instance=ExtResource("3_6vu0x")]
 map_seed = 100
-room_min_size = null
+min_room_width = 4
+min_room_height = 4
+max_room_width = 10
+max_room_height = 10
+num_rooms = 15
 
 [node name="TurnManager" type="Node2D" parent="." unique_id=1297103255]
 script = ExtResource("2_5qggd")

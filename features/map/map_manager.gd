@@ -1,11 +1,6 @@
 class_name MapManager extends Node2D
 
 @export var map_seed: int
-@export var min_room_width: int = 4
-@export var min_room_height: int = 4
-@export var max_room_width: int = 10
-@export var max_room_height: int = 10
-@export var num_rooms: int = 15
 @export var theme: MapTheme
 
 @onready var map_scene: MapScene = $MapScene
