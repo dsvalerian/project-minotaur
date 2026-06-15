@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://ch14grfjr8vws"]
 
 [ext_resource type="Script" uid="uid://s1sbha4sdb7r" path="res://features/characters/character.gd" id="1_pmi4q"]
+[ext_resource type="Script" uid="uid://b8i2cs8ocxryl" path="res://features/characters/stats.gd" id="2_molqp"]
+[ext_resource type="Script" uid="uid://chnqdybds2ybl" path="res://features/characters/character_class.gd" id="3_b44hh"]
+
+[sub_resource type="Resource" id="Resource_j770e"]
+script = ExtResource("2_molqp")
+metadata/_custom_type_script = "uid://b8i2cs8ocxryl"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dus2r"]
+
+[sub_resource type="Resource" id="Resource_nh6am"]
+script = ExtResource("3_b44hh")
+character_class_name = "Default"
+icon = SubResource("PlaceholderTexture2D_dus2r")
+base_stats = SubResource("Resource_j770e")
+metadata/_custom_type_script = "uid://chnqdybds2ybl"
 
 [node name="Character" type="Node2D" unique_id=885408517]
 script = ExtResource("1_pmi4q")
+character_name = "John Character"
+character_class = SubResource("Resource_nh6am")
 
 [node name="CharacterSprite" type="Sprite2D" parent="." unique_id=827467473]

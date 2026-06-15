@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://p7721p74ll2n" path="res://features/map/themes/dungeon/dungeon_theme.tres" id="2_d45ak"]
 [ext_resource type="PackedScene" uid="uid://2aj2ayk8gjbn" path="res://features/camera/camera.tscn" id="4_n6fde"]
 [ext_resource type="Script" uid="uid://c31fn3vfysgrk" path="res://features/map/map_scene.gd" id="5_gamemap"]
+[ext_resource type="Script" uid="uid://ddxb2v614kae7" path="res://features/map/pathing_manager.gd" id="5_gsppx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n6fde"]
 load_path = "res://.godot/imported/dungeon_atlas.png-f20ece36c431ba979be61f0d184122c2.ctex"
@@ -66,6 +67,7 @@ sources/0 = SubResource("TileSetAtlasSource_2dwai")
 script = ExtResource("1_dgjgn")
 map_seed = 1000
 min_room_width = 8
+min_room_height = null
 max_room_width = 12
 max_room_height = 6
 num_rooms = 10
@@ -81,10 +83,10 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="MapScene" unique_id=312847563]
-
-[node name="MovementLayer" type="Node2D" parent="MapScene" unique_id=683782438]
 
 [node name="FloorLayer" type="TileMapLayer" parent="MapScene" unique_id=1177148956]
 tile_set = SubResource("TileSet_d45ak")
@@ -95,5 +97,8 @@ tile_set = SubResource("TileSet_d45ak")
 [node name="EntityLayer" type="Node2D" parent="MapScene" unique_id=1406394723]
 
 [node name="CharacterLayer" type="Node2D" parent="MapScene" unique_id=2004111606]
+
+[node name="PathingManager" type="Node2D" parent="." unique_id=2106943417]
+script = ExtResource("5_gsppx")
 
 [node name="Camera" parent="." unique_id=438464646 instance=ExtResource("4_n6fde")]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://w1fnsgjgbdjc"]
+
+[ext_resource type="Script" uid="uid://b8i2cs8ocxryl" path="res://features/characters/stats.gd" id="1_6mj4p"]
+[ext_resource type="Texture2D" uid="uid://ct4qfaj2psrx5" path="res://features/characters/rogue/rogue_sprite.png" id="1_o8tdt"]
+[ext_resource type="Script" uid="uid://chnqdybds2ybl" path="res://features/characters/character_class.gd" id="1_un64y"]
+
+[sub_resource type="Resource" id="Resource_xa2cu"]
+script = ExtResource("1_6mj4p")
+metadata/_custom_type_script = "uid://b8i2cs8ocxryl"
+
+[resource]
+script = ExtResource("1_un64y")
+character_class_name = "Rogue"
+icon = ExtResource("1_o8tdt")
+base_stats = SubResource("Resource_xa2cu")
+metadata/_custom_type_script = "uid://chnqdybds2ybl"
