@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dtkd6251md5r7"]
+
+[ext_resource type="Script" uid="uid://cphd6gr0gcxix" path="res://features/menu/party_selection_screen.gd" id="1_cjm28"]
+[ext_resource type="PackedScene" uid="uid://ptpv2bn5bft7" path="res://features/menu/class_select_slot.tscn" id="2_1s3j0"]
+
+[node name="PartySelectionScreen" type="Control" unique_id=304619354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cjm28")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=148709694]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1083.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer" unique_id=2056821794]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClassOptions" type="GridContainer" parent="VBoxContainer/HBoxContainer1" unique_id=1793546298]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+columns = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer1" unique_id=1144264261]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer1/PanelContainer" unique_id=768639168]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatsDisplay" type="Label" parent="VBoxContainer/HBoxContainer1/PanelContainer/VBoxContainer" unique_id=1010750777]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 6
+text = "There's going to be character info here at some point I'm just fucking lazy lmao"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=732742765]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedCharacterLayout" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1917566373]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="ClassSelectSlot1" parent="VBoxContainer/HBoxContainer/SelectedCharacterLayout" unique_id=967235905 instance=ExtResource("2_1s3j0")]
+unique_name_in_owner = true
+layout_mode = 2
+character_class = null
+
+[node name="ClassSelectSlot2" parent="VBoxContainer/HBoxContainer/SelectedCharacterLayout" unique_id=507809999 instance=ExtResource("2_1s3j0")]
+unique_name_in_owner = true
+layout_mode = 2
+character_class = null
+
+[node name="ClassSelectSlot3" parent="VBoxContainer/HBoxContainer/SelectedCharacterLayout" unique_id=756118556 instance=ExtResource("2_1s3j0")]
+unique_name_in_owner = true
+layout_mode = 2
+character_class = null
+
+[node name="ClassSelectSlot4" parent="VBoxContainer/HBoxContainer/SelectedCharacterLayout" unique_id=432312747 instance=ExtResource("2_1s3j0")]
+unique_name_in_owner = true
+layout_mode = 2
+character_class = null
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=1081710983]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel" unique_id=1741035268]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer/HBoxContainer/Panel/VBoxContainer" unique_id=1808190976]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel/VBoxContainer/ContinueButton" to="." method="_handle_continue_button_pressed"]

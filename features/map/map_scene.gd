@@ -14,9 +14,9 @@ const DIR_W = Vector2i(-1,  0)
 
 var rng
 
-func create(map: Map, seed: int, theme: MapTheme) -> void:
+func create(map: Map, rng_seed: int, theme: MapTheme) -> void:
 	rng = RandomNumberGenerator.new()
-	rng.seed = seed
+	rng.seed = rng_seed
 	floor_layer.tile_set = theme.tileset
 	wall_layer.tile_set = theme.tileset
 	background.color = theme.background_color

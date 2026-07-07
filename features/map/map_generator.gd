@@ -20,16 +20,18 @@ var _min_room_w: int
 var _min_room_h: int
 var _max_room_w: int
 var _max_room_h: int
+var _num_rooms: int
 
 func _init(map_seed: int) -> void:
 	_rng = RandomNumberGenerator.new()
 	_rng.seed = map_seed
 
-func generate(min_room_w: int, min_room_h: int, max_room_w: int, max_room_h: int, num_rooms: int) -> Map:
-	_min_room_w = min_room_w
-	_min_room_h = min_room_h
-	_max_room_w = max_room_w
-	_max_room_h = max_room_h
+func generate(floor_info: FloorInfo) -> Map:
+	_min_room_w = floor_info.min_room_width
+	_min_room_h = floor_info.min_room_height
+	_max_room_w = floor_info.max_room_width
+	_max_room_h = floor_info.max_room_height
+	_num_rooms = floor_info.num_rooms
 
 	var map := Map.new()
 
@@ -39,7 +41,7 @@ func generate(min_room_w: int, min_room_h: int, max_room_w: int, max_room_h: int
 	var exit_queue: Array = starting_room.exits.duplicate()
 	var rooms_placed := 1  # starting room counts
 
-	while rooms_placed < num_rooms:
+	while rooms_placed < _num_rooms:
 		if exit_queue.is_empty():
 			break
 		var idx := _rng.randi() % exit_queue.size()

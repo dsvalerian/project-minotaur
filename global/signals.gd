@@ -26,18 +26,28 @@ signal connection_failed
 @warning_ignore("unused_signal")
 signal player_registry_updated
 
+# Menus
+@warning_ignore("unused_signal")
+signal party_selected(classes: Party)
+
 # Gameplay
 @warning_ignore("unused_signal")
 signal loaded_game
+@warning_ignore("unused_signal")
+signal on_game_start
 @warning_ignore("unused_signal")
 signal turn_ended(character: Character)
 @warning_ignore("unused_signal")
 signal turn_started(character: Character)
 @warning_ignore("unused_signal")
 signal turn_order_change(characters: Array[Character])
- 
+@warning_ignore("unused_signal")
+signal map_generated(map: Map, floor_info: FloorInfo)
+
  # Characters
 @warning_ignore("unused_signal")
 signal character_spawned(character: Character)
 @warning_ignore("unused_signal")
 signal character_died(character: Character)
+@warning_ignore("unused_signal")
+signal character_move(character: Character, start: Vector2i, end: Vector2i)

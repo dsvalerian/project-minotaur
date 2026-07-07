@@ -1,14 +1,10 @@
 class_name MapManager extends Node2D
 
 @export var map_seed: int
-@export var min_room_width: int = 4
-@export var min_room_height: int = 4
-@export var max_room_width: int = 10
-@export var max_room_height: int = 10
-@export var num_rooms: int = 15
 @export var theme: MapTheme
 
 @onready var map_scene: MapScene = $MapScene
+@onready var pathing_manager: PathingManager = $PathingManager
 @onready var generator: MapGenerator = MapGenerator.new(map_seed)
 
 var _map: Map
@@ -17,11 +13,22 @@ var _character_positions: Dictionary[Character, Vector2i] = {}
 func _ready():
 	Signals.character_spawned.connect(_on_character_spawn)
 	Signals.character_died.connect(_on_character_died)
-	create_map()
+	Signals.character_move.connect(_on_character_move)
 
-func create_map():
-	_map = generator.generate(min_room_width, min_room_height, max_room_width, max_room_height, num_rooms)
+func render_path(player_pos: Vector2i, target_pos: Vector2i) -> void:
+	var path: Array[Vector2i] = pathing_manager.get_path_tiles(player_pos, target_pos)
+	var global_path: Array[Vector2i] = []
+	for coords: Vector2i in path:
+		global_path.push_back(get_global_coords_from_map_coords(coords) - Vector2i(8, 8))
+	pathing_manager.path = global_path
+
+func get_global_coords_from_map_coords(coords: Vector2i) -> Vector2i:
+	return map_scene.floor_layer.map_to_local(coords) * map_scene.floor_layer.scale
+
+func create_map(floor_info: FloorInfo):
+	_map = generator.generate(floor_info)
 	map_scene.create(_map, map_seed, theme)
+	Signals.map_generated.emit(_map, floor_info)
 
 func _on_character_spawn(character: Character) -> void:
 	var entrance := _map.find_interactable(FloorEntrance)
@@ -37,6 +44,23 @@ func _on_character_died(character: Character) -> void:
 	var pos := _character_positions[character]
 	_map.get_cell(pos).character = null
 	_character_positions.erase(character)
+
+func character_can_move_to(_character: Character, pos: Vector2i) -> bool:
+	return _map.is_floor(pos) && !cell_is_occupied(pos)
+
+func cell_is_occupied(cell: Vector2i) -> bool:
+	# TODO also handle furniture
+	for occupied_cell in _character_positions.values():
+		if occupied_cell == cell:
+			return true
+	return false
+
+func _on_character_move(character: Character, _start: Vector2i, end: Vector2i) -> void:
+	_character_positions[character] = end
+	character.position = map_scene.floor_layer.map_to_local(end) * map_scene.floor_layer.scale
+
+func get_character_pos(character: Character) -> Vector2i:
+	return _character_positions[character]
 
 func _get_nearby_floor_cells(origin: Vector2i, count: int) -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
