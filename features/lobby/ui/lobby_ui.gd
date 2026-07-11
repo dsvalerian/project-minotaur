@@ -9,12 +9,18 @@ class_name Lobby
 @onready var join_address: LineEdit = $JoinMenu/ServerInput/AddressEdit
 @onready var join_port: LineEdit = $JoinMenu/ServerInput/PortEdit
 @onready var player_list: ItemList = $LobbyMenu/PlayerList
+@onready var start_game_button: Button = %StartGameButton
 
 func _ready() -> void:
 	_open_host_join_menu()
 	
 	Signals.net_state_updated.connect(_on_net_state_updated)
 	Signals.peers_updated.connect(_update_player_list)
+	var arguments = OS.get_cmdline_args()
+	if ("--p1" in arguments):
+		NetworkManager.create_server(9999)
+	elif ("--p2" in arguments or "--p3" in arguments or "--p4" in arguments):
+		NetworkManager.connect_to_server("localhost", 9999)
 
 func _open_host_join_menu() -> void:
 	host_menu.visible = false
@@ -39,6 +45,10 @@ func _open_lobby_menu() -> void:
 	host_join_menu.visible = false
 	join_menu.visible = false
 	lobby_menu.visible = true
+	if (NetworkManager.is_server()):
+		start_game_button.visible = true
+	if (!NetworkManager.is_server()):
+		start_game_button.disabled = true;
 	
 func _update_player_list() -> void:
 	player_list.clear()
@@ -62,3 +72,6 @@ func _on_net_state_updated(state: Enums.NetState) -> void:
 		_open_lobby_menu()
 	elif state == Enums.NetState.OFFLINE:
 		_open_host_join_menu()
+
+func _on_start_game_button_pressed() -> void:
+	pass

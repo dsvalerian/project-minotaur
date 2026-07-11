@@ -63,7 +63,7 @@ func _on_connected_to_server() -> void:
 	print("Connected to server")
 	Signals.connected_to_server.emit()
 	Signals.net_state_updated.emit(Enums.NetState.CONNECTED)
-	
+
 func _on_connection_failed() -> void:
 	print("Failed to connect to server")
 	Signals.connection_failed.emit()
